@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+body{
+  max-width: 960px;
+  margin-left:auto;
+  margin-right:auto;
+}
