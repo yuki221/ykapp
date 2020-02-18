@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   get "posts/show/:id" => "posts#show"
   delete 'posts/show/:id' => 'posts#destroy'
-  root "pages#index"
+  root "pages#home"
   resources :posts,          only: [:create, :show, :destroy] do
     resources :likes, only: [:create, :destroy]
   end
