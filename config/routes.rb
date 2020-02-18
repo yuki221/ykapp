@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'posts/cafe'
   get 'posts/sweets'
 
+  get 'tags/:tag', to: 'posts#index', as: :tag #追加
+
   get "posts/show/:id" => "posts#show"
   delete 'posts/show/:id' => 'posts#destroy'
   root "pages#home"

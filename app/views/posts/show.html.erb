@@ -10,7 +10,9 @@
 <%= image_tag('/images/default.jpg', size: '350x250', class: 'img-responsive padding-top-15') %>
 
 <% end %>
-
+<div class="post-tag">
+<%= render 'posts/tag_list', tag_list: @posts.tag_list %>
+</div>
 <% if current_user == @post.user %>
 <%= link_to "削除", post_path, method: :delete %>
 <% end %>

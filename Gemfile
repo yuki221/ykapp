@@ -68,3 +68,5 @@ gem "refile-mini_magick", github: 'refile/refile-mini_magick'
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+
+gem 'acts-as-taggable-on', '~> 6.0'
