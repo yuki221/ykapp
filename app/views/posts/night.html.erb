@@ -1,1 +1,22 @@
-night
+<p>night test page </p>
+
+<h1 class="text-center">投稿一覧</h1>
+
+<% @spot.each do |post| %>
+  <div class="col-md-4">
+    <%= post.title %>
+    <%= post.body %>
+    <%= post.user_id %>
+    <% if post.image_id.present? %>
+        <div class="post-img">
+          <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 250,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
+          </div>
+          <% else %>
+<%=link_to (image_tag('/images/default.jpg',size: '350x250', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+<% end %>
+    <%= @user.username %>
+    <div class="post-tag">
+             <%= render 'posts/tag_list', tag_list: post.tag_list %>
+           </div>
+    </div>
+  <% end %>
