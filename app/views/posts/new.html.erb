@@ -9,6 +9,9 @@
     <%= f.text_area :title %>
     <%= f.text_area :body, placeholder: "Compose new micropost..." %>
   </div>
-
+ <div class="form-group">
+    <%= f.label :tag_list, "タグ（カンマ区切り）" %>
+    <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control" %>
+  </div>
   <%= f.submit "post", class: "btn btn-primary" %>
 <% end %>

@@ -19,6 +19,12 @@ class PostsController < ApplicationController
     @post = Post.all
     @posts = Post.find_by(params[:id])
     @user = User.find_by(id: @posts.user_id)
+
+    if params[:tag]
+      @users = User.tagged_with(params[:tag])
+    else
+      @users = User.all
+    end
   end
 
   def night
@@ -62,6 +68,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :tag_list)
   end
 end
