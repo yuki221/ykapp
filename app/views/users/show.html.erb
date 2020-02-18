@@ -1,0 +1,20 @@
+<h1>こんにちは、<%= current_user.username %>さん</h1>
+<p>ユーザー用ページです。他ユーザーから見られるユーザーページです。</p>
+
+<% if current_user.avatar_id.present? %>
+<%= image_tag attachment_url(current_user, :image, :fill, 70, 70, format: "jpg") %>
+<% else %>
+<%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15', :size =>'70x70') %>
+<% end %>
+
+<h3>いいねしている投稿</h3>
+<% @user.liked_posts.each do |post| %>
+  <%= post.title %>
+  <% if post.image_id.present? %>
+        <div class="post-img">
+          <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 250,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
+          </div>
+          <% else %>
+<%=link_to (image_tag('/images/default.jpg',size: '350x250', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+<% end %>
+<% end %>

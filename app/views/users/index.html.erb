@@ -1,0 +1,26 @@
+<% provide(:title, '全てのユーザー') %>
+
+
+<h1>All users</h1>
+
+<!-- test -->
+<div class="users-index">
+  <div class="container">
+    <div class="user-item-box">
+      <% @users.each do |user| %>
+
+        <div class="user-item user-list">
+
+          <% if user.avatar_id.present? %>
+            <%= image_tag attachment_url(user, :image, :fill, 70, 70, format: "jpg"), class: 'user-img' %>
+          <% else %>
+            <%= image_tag('/images/default.jpg', size: '70x70', class: 'user-img') %>
+          <% end %>
+
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>
