@@ -8,7 +8,7 @@
     <%= @user.username %>
 
 
-    <% if post.image_id.present? %>
+    <% if post.avatar_id.present? %>
         <div class="post-img">
           <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 250,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
           </div>
