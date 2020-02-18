@@ -1,2 +1,22 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+<h1 class="text-center">投稿一覧</h1>
+<% @post.each do |post| %>
+  <div class="col-md-4">
+    <%= post.title %>
+    <%= post.body %>
+    <%= post.user_id %>
+    <%= @user.username %>
+
+
+    <% if post.image_id.present? %>
+        <div class="post-img">
+          <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 250,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
+          </div>
+          <% else %>
+<%=link_to (image_tag('/images/default.jpg',size: '350x250', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+<% end %>
+    <div class="post-tag">
+
+    </div>
+  <% end %>
+</div>

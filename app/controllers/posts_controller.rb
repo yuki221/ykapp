@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @like = Like.new
     @post = Post.find_by(id: params[:id])
     @posts = Post.find_by(params[:id])
     @user = User.find_by(id: @posts.user_id)
@@ -51,8 +50,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(
-      post_params)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
       redirect_to root_path, notice: '投稿しました'
     else
@@ -63,6 +62,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :image)
   end
 end

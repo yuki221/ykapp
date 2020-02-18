@@ -1,2 +1,16 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<p>各投稿がみれるページです。</p>
+<%= @post.title %>
+<%= @post.body %>
+
+<% if @post.image_id.present? %>
+        <div class="post-img">
+          <%= image_tag attachment_url(@post, :image, :fill, 350, 250, format: "jpg"), class: 'post-photo' %>
+          </div>
+          <% else %>
+<%= image_tag('/images/default.jpg', size: '350x250', class: 'img-responsive padding-top-15') %>
+
+<% end %>
+
+<% if current_user == @post.user %>
+<%= link_to "削除", post_path, method: :delete %>
+<% end %>
