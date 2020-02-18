@@ -1,27 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ykapp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <title>SampleApp</title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-   <nav>
-                <% if user_signed_in? %>
+    <body>
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+   <a class="navbar-brand" href="/pages/home">◇◇◇</a>
 
-                <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            <% else %>
-                <%= link_to 'サインアップ', new_user_registration_path %>
-                <%= link_to 'ログイン', new_user_session_path %>
-                <% end %>
-            </nav>
-   <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+       <a class="nav-item nav-link active" href="/pages/help">Help <span class="sr-only">(current)</span></a>
+       <a class="nav-item nav-link" href="/pages/about">About</a>
+
+      <% if user_signed_in? %>
+
+      <div class="nav-item nav-link active">
+       <strong><%= link_to current_user.username, pages_show_path %></strong>
+      </div>
+
+      <div class="nav-item nav-link active">
+       <%= link_to '投稿する', posts_new_path %>
+      </div>
+
+      <div class="nav-item nav-link active">
+       <%= link_to '投稿一覧', posts_index_path %>
+      </div>
+
+      <div class="nav-item nav-link active">
+       <%= link_to 'ユーザー一覧', users_index_path %>
+      </div>
+
+      <div class="nav-item nav-link active">
+       <%= link_to 'プロフィール変更', edit_user_registration_path %>
+      </div>
+
+      <div class="nav-item nav-link active">
+       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </div>
+
+
+
+      <% else %>
+      <div class="nav-item nav-link active">
+       <%= link_to "ユーザー登録", new_user_registration_path %>
+      </div>
+
+      <div class="nav-item nav-link active">
+       <%= link_to "ログイン", user_session_path  %>
+      </div>
+
+
+      <% end %>
+      </div>
+      </div>
+      </nav>
+
+
+        </header>
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <%= yield %>
+
+
+    <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+
+
+
+    <%= debug(params) if Rails.env.development? %>
   </body>
+
+
+
+  <footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
+  </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script></body>
 </html>
