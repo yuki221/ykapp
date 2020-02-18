@@ -5,9 +5,11 @@ protect_from_forgery with: :exception
   protected
 
   def configure_permitted_parameters
-    added_attrs = [ :email, :username, :password, :password_confirmation ]
+    added_attrs = [ :email, :username, :password, :password_confirmation, :avatar ]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
+
+  Refile.secret_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 end
