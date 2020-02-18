@@ -1,1 +1,14 @@
-new
+<div class="container">
+<h1 class="text-center">投稿する</h1>
+<%= form_for (@post) do |f| %>
+ <div class="form-group padding-top-15">
+        <%= f.attachment_field :image %>
+ </div>
+</div>
+  <div class="field">
+    <%= f.text_area :title %>
+    <%= f.text_area :body, placeholder: "Compose new micropost..." %>
+  </div>
+
+  <%= f.submit "post", class: "btn btn-primary" %>
+<% end %>
