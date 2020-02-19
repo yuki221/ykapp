@@ -6,7 +6,7 @@
     <%= post.body %>
     <%= post.user_id %>
     <%= @user.username %>
-
+    (<%= post.liked_users.count %>)
 
     <% if post.image_id.present? %>
         <div class="post-img">
