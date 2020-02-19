@@ -16,6 +16,26 @@
 
 <%= render 'posts/like' %>
 
+<h2>コメント一覧</h2>
+<% @comments.each do |comment| %>
+  <div>
+    <%= link_to comment.user.username, users_show_path %>
+    <%= simple_format comment.content %>
+    <%= comment.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+    <% if comment.user_id == current_user.id %>
+    <%= link_to 'コメントを削除', post_comment_path(@post.id), method: :delete, data: { confirm: "提案文を削除しますか？この操作は取り消せません。"}, class: "btn btn-danger btn-md" %>
+    <% end %>
+    <hr>
+  </div>
+<% end %>
+
+<%= form_for [@posts, @comment] do |f| %>
+  <%= f.label :コメント内容 %>
+  <%= f.text_area :content %>
+  <br>
+  <%= f.submit 'コメント送信' %>
+  <% end %>
+
 <% if current_user == @post.user %>
 <%= link_to "削除", post_path, method: :delete %>
 <% end %>

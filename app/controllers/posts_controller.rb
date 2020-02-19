@@ -8,6 +8,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @posts = Post.find_by(params[:id])
     @user = User.find_by(id: @posts.user_id)
+    @comments = @posts.comments.includes(:user).all
+    @comment = @posts.comments.build(user_id: current_user.id) if current_user
   end
 
   def destroy
@@ -69,6 +71,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :tag_list)
+    params.require(:post).permit(:title, :body, :image, :tag_list, :content)
   end
 end
