@@ -8,8 +8,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @posts = Post.find_by(params[:id])
     @user = User.find_by(id: @posts.user_id)
-    @comments = @posts.comments.includes(:user).all
-    @comment = @posts.comments.build(user_id: current_user.id) if current_user
+    @comments = @post.comments.includes(:user).all
+    @comment = @post.comments.build(user_id: current_user.id) if current_user
   end
 
   def destroy
