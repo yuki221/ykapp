@@ -5,66 +5,66 @@
         <%= csrf_meta_tags %>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     </head>
 
 
     <body>
   <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-   <a class="navbar-brand" href="/pages/home">◇◇◇</a>
 
+  <!-- ヘッダー  -->
+<nav class="navbar navbar-expand navbar-light mb-3">
+  <div class="container">
+    <!-- タイトル -->
+    <%= link_to "◇◆◇◆", root_path, class: "navbar-brand font-weight-bold" %>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-    </button>
+      <!-- ユーザー一覧 -->
+      <%= link_to users_index_path, class: "navbar-users nav-item nav-link active px-0 mr-1" do %>
+        <i class="fas fa-user-friends" style="font-size: 1.1rem; position: relative; top: 1px; left: 3px;"></i>
+        <% end %>
 
-     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-       <a class="nav-item nav-link active" href="/pages/help">Help <span class="sr-only">(current)</span></a>
-       <a class="nav-item nav-link" href="/pages/about">About</a>
+        <div class="collapse navbar-collapse justify-content-end">
 
-      <% if user_signed_in? %>
+        <ul class="navbar-nav align-items-center">
 
-      <div class="nav-item nav-link active">
-       <strong><%= link_to current_user.username, users_show_path %></strong>
-      </div>
+         <% if user_signed_in? %>
+          <li class="nav-item d-flex align-items-center">
+           <!-- ユーザーネーム -->
+            <%= link_to edit_user_registration_path, class: "avatar-user-name nav-link mr-3 p-0" do %>
+              <div class="nav-username d-none d-sm-flex"><div style="font-size: 1.05rem;">@</div><div class="nav-username-text"><%= current_user.username %></div></div>
+            <% end %>
+            <!-- アバター -->
+            <% if current_user.avatar_id.present? %>
+            <%= image_tag attachment_url(current_user, :avatar, :fill, 70, 70, format: "jpg"), class: 'user-img' %>
+          <% else %>
+            <%= image_tag('/images/default.jpg', size: '70x70', class: 'user-img') %>
+          <% end %>
 
-      <div class="nav-item nav-link active">
-       <%= link_to '投稿する', posts_new_path %>
-      </div>
+          </li>
+          <li class="nav-item">
 
-      <div class="nav-item nav-link active">
-       <%= link_to '投稿一覧', posts_index_path %>
-      </div>
+          <!-- 投稿 -->
+            <%= link_to new_post_path, class: "btn btn-dark nav-btn", style: "background-color: #23272b; position: relative; left: 1px;" do %><i class="far fa-edit mr-1"></i>投稿<% end %>
+          </li>
 
-      <div class="nav-item nav-link active">
-       <%= link_to 'ユーザー一覧', users_index_path %>
-      </div>
+        <% else %>
+          <li class="nav-item">
 
-      <div class="nav-item nav-link active">
-       <%= link_to 'プロフィール変更', edit_user_registration_path %>
-      </div>
+          <!-- ログイン -->
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link active px-0 mr-sm-2" %>
+          </li>
+          <li class="nav-item">
 
-      <div class="nav-item nav-link active">
-       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </div>
+          <!-- 新規登録 -->
+            <%= link_to "新規登録", new_user_registration_path, class: "btn btn-white nav-btn" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- /ヘッダー -->
 
-
-
-      <% else %>
-      <div class="nav-item nav-link active">
-       <%= link_to "ユーザー登録", new_user_registration_path %>
-      </div>
-
-      <div class="nav-item nav-link active">
-       <%= link_to "ログイン", user_session_path  %>
-      </div>
-
-
-      <% end %>
-      </div>
-      </div>
-      </nav>
 
 
         </header>
