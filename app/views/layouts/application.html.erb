@@ -29,15 +29,29 @@
 
          <% if user_signed_in? %>
           <li class="nav-item d-flex align-items-center">
-           <!-- ユーザーネーム -->
-            <%= link_to edit_user_registration_path, class: "avatar-user-name nav-link mr-3 p-0" do %>
-              <div class="nav-username d-none d-sm-flex"><div style="font-size: 1.05rem;">@</div><div class="nav-username-text"><%= current_user.username %></div></div>
-            <% end %>
+
+            <!--テスト-->
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          @<%= current_user.username %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <%= link_to 'マイページ', "/users/show/#{current_user.id}", class: "dropdown-item" %>
+
+          <a href="/users/edit" class="dropdown-item">編集</a>
+
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </li>
+          <!--/テスト-->
+
             <!-- アバター -->
+            <%= link_to edit_user_registration_path, class: "avatar-user-name nav-link mr-3 p-0" do %>
             <% if current_user.avatar_id.present? %>
             <%= image_tag attachment_url(current_user, :avatar, :fill, 70, 70, format: "jpg"), class: 'user-img' %>
           <% else %>
             <%= image_tag('/images/default.jpg', size: '70x70', class: 'user-img') %>
+          <% end %>
           <% end %>
 
           </li>

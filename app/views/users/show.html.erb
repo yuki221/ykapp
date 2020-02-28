@@ -1,8 +1,8 @@
-<h1>こんにちは、<%= current_user.username %>さん</h1>
+<h1>こんにちは、<%= @user.username %>さん</h1>
 <p>ユーザー用ページです。他ユーザーから見られるユーザーページです。</p>
 
-<% if current_user.avatar_id.present? %>
-<%= image_tag attachment_url(current_user, :image, :fill, 70, 70, format: "jpg") %>
+<% if @user.avatar_id.present? %>
+<%= image_tag attachment_url(@user, :avatar, :fill, 70, 70, format: "jpg") %>
 <% else %>
 <%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15', :size =>'70x70') %>
 <% end %>

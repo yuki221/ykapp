@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 
   get "posts/show/:id" => "posts#show"
   delete 'posts/show/:id' => 'posts#destroy'
+
+  get 'users/show/:id' => 'users#show'
+
   root "pages#home"
 
   resources :posts,          only: [:create, :show, :destroy] do
