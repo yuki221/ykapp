@@ -12,9 +12,9 @@
         <div class="user-item user-list">
 
           <% if user.avatar_id.present? %>
-            <%= image_tag attachment_url(user, :image, :fill, 70, 70, format: "jpg"), class: 'user-img' %>
+            <%=link_to (image_tag attachment_url(user, :avatar, :fill, 70, 70, format: "jpg")),"/users/show/#{user.id}", class: 'user-img' %>
           <% else %>
-            <%= image_tag('/images/default.jpg', size: '70x70', class: 'user-img') %>
+            <%=link_to (image_tag('/images/default.jpg', size: '70x70', class: 'user-img')), "/users/show/#{user.id}" %>
           <% end %>
 
         </div>
