@@ -113,11 +113,15 @@
     <div class="post-images col-6 col-sm-6">
         <div class="post-img">
          <% if post.image_id.present? %>
-            <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 250,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
+            <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 300,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
           <% else %>
-            <%=link_to (image_tag('/images/default.jpg',size: '350x250', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+            <%=link_to (image_tag('/images/default.jpg',size: '350x300', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
           <% end %>
         </div>
+
+        <div class="post-footer-names" style="line-height: 20px;">
+                <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username" %></a>
+              </div>
     </div>
   <% end %>
 
