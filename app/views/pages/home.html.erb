@@ -52,16 +52,16 @@
 <!--/ヘッダー画像 -->
 
 <!-- 説明 -->
-<div class="descripition">
-    <h1>■◇■◇■◇■◇■◇■◇■◇■◇■<br>
-        ■◇■◇■◇■◇■◇■◇■◇■◇■<br>
-        ■◇■◇■◇■◇■◇■◇■◇■◇■<br></h1>
-</div>
+
 
 <!-- /説明 -->
 
 
 <!-- sample -->
+
+<p>カテゴリ</p>
+
+
 <div class="post-cards row">
 
 <div class="post-card col-6 col-sm-4">
@@ -104,6 +104,31 @@
 
 <!-- /sample -->
 
+<!--　最近の投稿 -->
+
+<h1 class="text-center">最新の投稿一覧</h1>
+<div class="post-images latest row">
+<% @post.each do |post| %>
+
+    <div class="post-images col-6 col-sm-6">
+        <div class="post-img">
+         <% if post.image_id.present? %>
+            <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 300,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
+          <% else %>
+            <%=link_to (image_tag('/images/default.jpg',size: '350x300', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+          <% end %>
+        </div>
+
+        <div class="post-footer-names" style="line-height: 20px;">
+                <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username" %></a>
+              </div>
+    </div>
+  <% end %>
+
+
+
+
+<!-- /最近の投稿 -->
 
 
 
