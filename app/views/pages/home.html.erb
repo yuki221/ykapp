@@ -121,7 +121,12 @@
 
                     <div class="post-footer-names" style="line-height: 30px;">
                 <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username" %>
-                 <span class="fa fa-heart like-btn">
+                 <% if current_user.already_liked?(post) %>
+           <i class="fas fa-heart unlike-btn"></i></span>
+           <% else %>
+           <i class="far fa-heart like-btn" ></i></span>
+           <% end %>
+           <%= post.likes.count %>
                  </span>
 
 
