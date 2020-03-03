@@ -3,9 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
-  .post-images{
-
-  }
+.post-cardss {
+}
+.testtt{
+    margin: 0 -5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px;
+}
+    .post-cardss {}
+.testt{      padding: 0 10px;
+      margin-bottom: 20px;
+    }
+      .post-cardss-img img{
+     position: relative;
+     border-radius: 10px;
+     max-width: 100%;
+     height: auto;
+      }
 
   .sample1{
     overflow: hidden;
