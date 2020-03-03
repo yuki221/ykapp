@@ -3,9 +3,39 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
-  .post-images{
+.like-btn{
+  color: #e54747;
+}
 
-  }
+.unlike-btn{
+  color: red;
+}
+
+.post-user img{
+  border-radius: 50px;
+}
+.post-cardss {
+}
+.testtt{
+    margin: 0 -5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px;
+}
+    .post-cardss {}
+.testt{      padding: 0 10px;
+      margin-bottom: 20px;
+    }
+    .post-cardss-img{
+      position: relative;
+    }
+      .post-cardss-img img{
+
+     border-radius: 4px;
+     max-width: 100%;
+     height: auto;
+     margin-bottom: -16px;
+      }
 
   .sample1{
     overflow: hidden;
