@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
+.like-btn{
+  color: #e54747;
+}
+
 .post-cardss {
 }
 .testtt{
@@ -15,8 +19,11 @@
 .testt{      padding: 0 10px;
       margin-bottom: 20px;
     }
+    .post-cardss-img{
+      position: relative;
+    }
       .post-cardss-img img{
-     position: relative;
+
      border-radius: 10px;
      max-width: 100%;
      height: auto;
