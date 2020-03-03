@@ -109,22 +109,22 @@
                <% if post.image_id.present? %>
             　　<%=link_to (image_tag attachment_url(post, :image, :fill, 300, 260,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
          　　　 <% else %>
-               <%=link_to (image_tag('/images/default.jpg',size: '350x300', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+               <%=link_to (image_tag('/images/default.jpg',size: '300x260', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
                <% end %>
             </div>
-
+<div class="post-user">
 <% if post.user.avatar_id.present? %>
-  <%= image_tag attachment_url(post.user, :avatar, :fill, 70, 70, format: "jpg") %>
+  <%= image_tag attachment_url(post.user, :avatar, :fill, 50, 50, format: "jpg") %>
 <% else %>
-  <%= image_tag('/images/default.jpg',size: '70x70', class: 'img-responsive padding-top-15') %>
+  <%= image_tag('/images/default.jpg',size: '50x50') %>
 <% end %>
-
-                    <div class="post-footer-names" style="line-height: 30px;">
+</div>
+                  <div class="post-footer-names" style="line-height: 20px;">
                 <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username" %>
                  <% if current_user.already_liked?(post) %>
-           <i class="fas fa-heart unlike-btn"></i></span>
+           <i class="fas fa-heart unlike-btn"></i>
            <% else %>
-           <i class="far fa-heart like-btn" ></i></span>
+           <i class="far fa-heart like-btn" ></i>
            <% end %>
            <%= post.likes.count %>
                  </span>
