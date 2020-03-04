@@ -99,6 +99,7 @@
 
 <!-- /sample -->
 
+
 <!--　最近の投稿 -->
 
 <h1 class="text-center">最新の投稿一覧</h1>
@@ -121,13 +122,19 @@
 </div>
                   <div class="post-footer-names" style="line-height: 20px;">
                 <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username" %>
-                 <% if current_user.already_liked?(post) %>
-           <i class="fas fa-heart unlike-btn"></i>
+
+       <% if user_signed_in? %>
+          <% if current_user.already_liked?(post) %>
+             <i class="fas fa-heart unlike-btn"></i>
            <% else %>
-           <i class="far fa-heart like-btn" ></i>
-           <% end %>
-           <%= post.likes.count %>
-                 </span>
+             <i class="far fa-heart like-btn" ></i>
+          <% end %>
+          <%= post.likes.count %>
+       <% else %>
+       <i class="far fa-heart like-btn" ></i>
+       <%= post.likes.count %>
+
+       <% end %>
 
 
               </div>
