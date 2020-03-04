@@ -29,11 +29,13 @@
   </div>
 <% end %>
 
+<% if user_signed_in? %>
 <%= form_for [@posts, @comment] do |f| %>
   <%= f.label :コメント内容 %>
   <%= f.text_area :content %>
   <br>
   <%= f.submit 'コメント送信' %>
+  <% end %>
   <% end %>
 
 <% if current_user == @post.user %>
