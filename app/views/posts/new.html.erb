@@ -1,10 +1,17 @@
 <div class="container">
 <h1 class="text-center">投稿する</h1>
+
+<% if @post.image.present? %>
+  <%= image_tag @post.image, id: :img_prev, size: '380x300' %>
+<% else %>
+  <%= image_tag '/images/gray_bg.jpg', id: :img_prev, size: '380x300' %>
+<% end %>
+
 <%= form_for (@post) do |f| %>
  <div class="form-group padding-top-15">
-        <%= f.attachment_field :image %>
+        <%= f.attachment_field :image, id: :post_img %>
  </div>
-</div>
+
   <div class="field">
     <%= f.text_area :title %>
     <%= f.text_area :body, placeholder: "Compose new micropost..." %>
@@ -15,3 +22,24 @@
   </div>
   <%= f.submit "post", class: "btn btn-primary" %>
 <% end %>
+
+
+
+
+<!--　画像プレビュー(パーシャルにする) -->
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#post_img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
