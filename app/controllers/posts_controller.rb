@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   end
 
   def night
-     @spot = Post.tagged_with("nights")
+     @spot = Post.tagged_with("night")
      @post = Post.all
      @posts = Post.find_by(params[:id])
      @user = User.find_by(id: @posts.user_id)
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to root_path, notice: '投稿しました'
+      redirect_to posts_index_path, notice: '投稿しました'
     else
       render 'pages/about'
     end
@@ -71,6 +71,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :tag_list, :content)
+    params.require(:post).permit(:title, :body, :image, :content, :tag_list)
   end
 end
