@@ -27,7 +27,7 @@
 .cp_ipselect.cp_sl06 {
   position: relative;
   border-radius: 2px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 50px;
   background: #ffffff;
 }
@@ -100,3 +100,14 @@
       left      : 50%;
       transform : translate(-50%, -50%);
     }
+.post-form-btns {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+
+  .btn {
+    font-weight: 700;
+    border-radius: 5px;
+    border: 2px solid black;
+  }

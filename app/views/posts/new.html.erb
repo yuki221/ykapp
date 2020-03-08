@@ -20,11 +20,10 @@
     <%= f.label :title, "タイトル" %>
     <%= f.text_area :title, autofocus: true, rows:1, class: "form-control"  %>
     <%= f.label :body, "内容" %>
-    <%= f.text_area :body, rows:8 , placeholder: "Compose new micropost...",class: "form-control" %>
+    <%= f.text_area :body, rows:8,class: "form-control" %>
   </div>
 
  <div class="form-group">
-    <%= f.label :tag_list, "タグを選んでください" %>
     <div class="cp_ipselect cp_sl06">
     <%= f.select :tag_list, Post::TAG_TYPES.map { |key, value| [value, key] }, include_blank: 'タグ選択', class: "cp_ipselect cp_sl06" %>
   </div>
@@ -33,8 +32,10 @@
 
 
 
-
-  <%= f.submit "投稿", class: "btn btn-primary" %>
+<div class="post-form-btns text-right mb-4">
+    <%= link_to "キャンセル", root_path, class: "btn post-form-btn mr-2", style: "border: none;" %>
+    <%= f.submit "投稿を送信", { class: "btn post-form-btn mr-3" } %>
+  </div>
 <% end %>
 
 
