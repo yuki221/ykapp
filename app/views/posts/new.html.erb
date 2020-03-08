@@ -24,7 +24,6 @@
   </div>
 
  <div class="form-group">
-    <%= f.label :tag_list, "タグを選んでください" %>
     <div class="cp_ipselect cp_sl06">
     <%= f.select :tag_list, Post::TAG_TYPES.map { |key, value| [value, key] }, include_blank: 'タグ選択', class: "cp_ipselect cp_sl06" %>
   </div>
