@@ -1,16 +1,20 @@
 <div class="container">
 <h1 class="text-center">投稿する</h1>
-
-<% if @post.image.present? %>
-  <%= image_tag @post.image, id: :img_prev, size: '380x300' %>
-<% else %>
-  <%= image_tag '/images/gray_bg.jpg', id: :img_prev, size: '380x300' %>
-<% end %>
-
 <%= form_for (@post) do |f| %>
- <div class="form-group padding-top-15">
-        <%= f.attachment_field :image, id: :post_img %>
- </div>
+<div class="post-form">
+    <div class="preview-wrap" onClick="$('#file').click()">
+      <div id="img_field">
+        <% if @post.image.present? %>
+          <%= image_tag(@post.image.url, class: "preview") %>
+        <% end %>
+      </div>
+      <i class="fas fa-camera" onClick="$('#file').click()"></i>
+    </div>
+      <%= f.file_field :image, class: "image", style: "display: none;", id: "file", accept: 'image/jpeg,image/gif,image/png' %>
+</div>
+
+
+
 
   <div class="field">
     <%= f.label :title, "タイトル" %>
@@ -38,18 +42,36 @@
 
 <!--　画像プレビュー(パーシャルにする) -->
 <script type="text/javascript">
-  $(function() {
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-    $('#img_prev').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#post_img").change(function(){
-        readURL(this);
+
+
+
+  <!--　テスト -->
+$(function(){
+    $fileField = $('#file')
+
+    // 選択された画像を取得し表示
+    $($fileField).on('change', $fileField, function(e) {
+      file = e.target.files[0]
+      reader = new FileReader(),
+      $preview = $("#img_field");
+
+      reader.onload = (function(file) {
+        return function(e) {
+          $preview.empty();
+          $preview.append($('<img>').attr({
+            src: e.target.result,
+            width: "100%",
+            class: "preview",
+            title: file.name
+          }));
+        };
+      })(file);
+      reader.readAsDataURL(file);
     });
   });
+
+  $(function(){
+    $('textarea').autosize();
+  });
+  <!-- /テスト -->
 </script>
