@@ -1,6 +1,8 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* post new */
 .cp_ipselect {
   overflow: hidden;
   width: 90%;
@@ -111,3 +113,10 @@
     border-radius: 5px;
     border: 2px solid black;
   }
+
+
+/* post index */
+.post-cardsss{
+  margin-top: 5px;
+  border-top: 1px solid black;
+}

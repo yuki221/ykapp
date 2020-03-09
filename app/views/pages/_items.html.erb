@@ -1,37 +1,37 @@
 <% @post.each do |post| %>
-          <div class="post-cardss col-md-4 col-sm-6">
-            <div class="post-cardss-img">
-               <% if post.image_id.present? %>
-            　　<%=link_to (image_tag attachment_url(post, :image, :fill, 300, 260,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
-         　　　 <% else %>
-               <%=link_to (image_tag('/images/default.jpg',size: '280x220', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
-               <% end %>
-            </div>
-<div class="post-user">
-<% if post.user.avatar_id.present? %>
-  <%= image_tag attachment_url(post.user, :avatar, :fill, 50, 50, format: "jpg") %>
-<% else %>
-  <%= image_tag('/images/default.jpg',size: '50x50') %>
-<% end %>
-</div>
-                  <div class="post-footer-names" style="line-height: 20px;">
-                <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username" %>
+  <div class="post-cardss col-md-4 col-sm-6">
+    <div class="post-cardss-img">
+      <% if post.image_id.present? %>
+        <%=link_to (image_tag attachment_url(post, :image, :fill, 300, 260,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
+      <% else %>
+         <%=link_to (image_tag('/images/default.jpg',size: '280x220', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+      <% end %>
+    </div>
 
-       <% if user_signed_in? %>
+    <div class="post-user">
+      <% if post.user.avatar_id.present? %>
+        <%= image_tag attachment_url(post.user, :avatar, :fill, 50, 50, format: "jpg") %>
+      <% else %>
+        <%= image_tag('/images/default.jpg',size: '50x50') %>
+      <% end %>
+    </div>
+
+    <div class="post-footer-names" style="line-height: 20px;">
+      <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username" %>
+        <% if user_signed_in? %>
           <% if current_user.already_liked?(post) %>
              <i class="fas fa-heart unlike-btn"></i>
            <% else %>
              <i class="far fa-heart like-btn" ></i>
           <% end %>
+
           <%= post.likes.count %>
-       <% else %>
-       <i class="far fa-heart like-btn" ></i>
-       <%= post.likes.count %>
+            <% else %>
+          <i class="far fa-heart like-btn" ></i>
+            <%= post.likes.count %>
+          <% end %>
 
-       <% end %>
 
-
-              </div>
-          </div>
-        <% end %>
-      </div>
+    </div>
+  </div>
+<% end %>
