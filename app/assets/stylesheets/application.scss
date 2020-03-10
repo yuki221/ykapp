@@ -16,7 +16,11 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@mixin sm { @media (min-width: 576px) { @content; } }
+@mixin md { @media (min-width: 768px) { @content; } }
+@mixin lg { @media (min-width: 960px) { @content; } }
 
+$color-black: #212529;
 
 body{
   max-width: 960px;
