@@ -46,8 +46,9 @@
     </div>
 
     <div class="p-saunaItem_meta">
-    <%= post.body %>
+    <%= post.body .truncate(110, separator: '.') %>
     </div>
+<h3>コメント数: <%= post.comments.count %>件</h3>
   </div>
 </div>
 </div>
