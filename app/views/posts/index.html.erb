@@ -30,7 +30,16 @@
             <%= image_tag('/images/default.jpg',size: '50x50') %>
           <% end %>
           <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username" %>
-          <% if user_signed_in? %>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-saunaItem_meta">
+    <%= post.body .truncate(110, separator: '.') %>
+    </div>
+   <div class="comments-count">
+   <i class="fas fa-comments"></i></i> <%= post.comments.count %>件
+   <% if user_signed_in? %>
             <% if current_user.already_liked?(post) %>
               <i class="fas fa-heart unlike-btn"></i>
               <% else %>
@@ -41,15 +50,6 @@
               <i class="far fa-heart like-btn" ></i>
               <%= post.likes.count %>
             <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div class="p-saunaItem_meta">
-    <%= post.body .truncate(110, separator: '.') %>
-    </div>
-   <div class="comments-count">
-   <h3>コメント数: <%= post.comments.count %>件</h3>
    </div>
   </div>
 </div>
