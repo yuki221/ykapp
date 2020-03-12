@@ -4,7 +4,7 @@
       <% if post.image_id.present? %>
         <%=link_to (image_tag attachment_url(post, :image, :fill, 300, 260,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
       <% else %>
-         <%=link_to (image_tag('/images/default.jpg',size: '280x220', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+         <%=link_to (image_tag('/images/post-default.jpg',size: '280x220', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
       <% end %>
     </div>
 
