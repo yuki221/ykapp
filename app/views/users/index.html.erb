@@ -28,16 +28,15 @@
           <% if user_signed_in? %>
 <% unless current_user == user %>
   <% if current_user.following?(user) %>
-    <%= form_for(current_user.following_relationships.find_by(following_id: user.id), html: { method: :delete },remote: true) do |f| %>
-      <%= hidden_field :following_id, user.id %>
-      <%= f.submit 'Unfollow', class: 'btn btn-danger btn-block' %>
-    <% end %>
+      <%= form_for(current_user.following_relationships.find_by(following_id: user.id), html: { method: :delete }, remote: true) do |f| %>
+        <%= f.submit "フォロー中", class: "btn unfollow rounded-pill" %>
+      <% end %>
   <% else %>
 
-<%= form_for(current_user.following_relationships.build(following_id: @user.id), remote: true) do |f| %>
-      <%= hidden_field :following_id, user.id %>
-      <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
-    <% end %>
+<%= form_for(current_user.following_relationships.build(following_id: user.id), remote: true) do |f| %>
+        <div><%= f.hidden_field :following_id %></div>
+        <%= f.submit "フォロー", class: "btn follow rounded-pill d-flex align-items-center justify-content-center" %>
+      <% end %>
   <% end %>
 <% end %>
 <% end %>
