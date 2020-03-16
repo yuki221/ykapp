@@ -6,6 +6,10 @@
 <% else %>
 <%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15', :size =>'70x70') %>
 <% end %>
+<section class="stats">
+  <%= render 'follow_form' %>
+　　　<%= render 'stats' %>
+</section>
 
 <h3>いいねしている投稿</h3>
 <% @user.liked_posts.each do |post| %>
