@@ -7,7 +7,9 @@
 <%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15', :size =>'70x70') %>
 <% end %>
 <section class="stats">
+<% if user_signed_in? %>
   <%= render 'follow_form' %>
+  <% end %>
 　　　<%= render 'stats' %>
 </section>
 
