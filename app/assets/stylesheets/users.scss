@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user-cards{
-  background-color: skyblue;
+  background-color: #DDDDDD;
   width: auto;
   height: 290px;
   border: 10px solid white;
@@ -11,17 +11,26 @@
 .user-item img{
   border-radius: 100px;
   margin: auto;
-  position: relative;
-  left: 20%;
+  position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    font-family :Quicksand, sans-serif;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
 }
 .user-name{
-position: relative;
-left: 39%;
-top: 10%;
-width: 100px;
+position: absolute;
+top: 72%;
+left: 40%;
 }
 .follow-btn{
-  position: relative;
-  left: 30%;
-  width: 100px;
+  position: absolute;
+top: 82%;
+left: 26%;
 }
