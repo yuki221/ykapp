@@ -4,6 +4,16 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username, autofocus: true, autocomplete: 'ユーザー名', class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'プロフィール（500字以内）' %>
+    <%= f.text_area :profile, rows: 5, autofocus: true, autocomplete: 'profile', class: 'form-control' %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
