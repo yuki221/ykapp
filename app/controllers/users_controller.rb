@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
      @user = User.find(params[:id])
+     @following = @user.followings
   end
 
   def index
