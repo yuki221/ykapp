@@ -34,3 +34,20 @@ left: 40%;
 top: 82%;
 left: 26%;
 }
+
+.nav-links{
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+.nav-cards{
+
+}
+@media screen and (min-width:769px){
+  .nav-links{
+    margin: 0 80px 0 80px;
+  }
+}
+.tab-content{
+  border: 1px solid black;
+}

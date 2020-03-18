@@ -6,127 +6,97 @@
 <%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15', :size =>'70x70') %>
 <% end %>
 <%= @user.profile %>
-%= @user.profile %>
 <section class="stats">
 <% if user_signed_in? %>
   <%= render 'follow_form' %>
   <% end %>
 </section>
 
-
 <!-- テスト -->
-<div class="user-status-cell">
-  <ul class="nav nav-pills justify-content-around justify-content-md-center" id="pills-tab" role="tablist">
-    <li class="nav-item">
-      <%= link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-post-tab", href: "#pills-post",
-          role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-post", "aria-selected" => "true"} do %>
-        <div class="user-status">
-          <div class="status-name p-0">投稿</div>
-          <div class="status-value"><%= @user.posts.count.to_s(:delimited) %></div>
-        </div>
-      <% end %>
+<div class="row">
+<div class="user-nav col-md-12">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item nav-link-user">
+     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">投稿<%= @user.posts.count.to_s(:delimited) %></a>
     </li>
-    <li class="nav-item">
-      <%= link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-following-tab", href: "#pills-following",
-          role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-following", "aria-selected" => "true"} do %>
-        <div class="user-status">
-          <div class="status-name p-0">フォロー中</div>
-          <div class="status-value" id="following_<%= @user.id %>"><%= @user.followings.count.to_s(:delimited) %></div>
-        </div>
-      <% end %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-follower-tab", href: "#pills-follower",
-          role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-follower", "aria-selected" => "true"} do %>
-        <div class="user-status">
-          <div class="status-name p-0">フォロワー</div>
-          <div class="status-value" id="followers_<%= @user.id %>"><%= @user.followers.count.to_s(:delimited) %></div>
-        </div>
-      <% end %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-lover-tab", href: "#pills-lover",
-          role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-lover", "aria-selected" => "true"} do %>
-        <div class="user-status">
-          <div class="status-name p-0">いいね</div>
-          <div class="status-value"><%= @user.likes.count.to_s(:delimited) %></div>
-        </div>
-      <% end %>
-    </li>
+    <li class="nav-item nav-link-user">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">いいね<%= @user.likes.count.to_s(:delimited) %></a>
+     </li>
+     <li class="nav-item nav-link-user">
+       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">フォロー<%= @user.followings.count.to_s(:delimited) %></a>
+     </li>
+     <li class="nav-item nav-link-user">
+       <a class="nav-link" id="follower-tab" data-toggle="tab" href="#follower" role="tab" aria-controls="follower" aria-selected="false">フォロワー<%= @user.followers.count.to_s(:delimited) %></a>
+     </li>
   </ul>
-</div>
-
-<div class="tab-content user-profile-contents" id="pills-tabContent">
-  <div class="tab-pane fade" id="pills-post" role="tabpanel" aria-labelledby="pills-post-tab">
-  <% @user.posts.each do |post| %>
+<!-- 投稿 -->
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <% @user.posts.each do |post| %>
       <%= post.title %>
       <% if post.image_id.present? %>
         <div class="post-img">
-          <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 250,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
+          <%=link_to (image_tag attachment_url(post, :image, :fill, 250, 180,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
         </div>
       <% else %>
-        <%=link_to (image_tag('/images/default.jpg',size: '350x250', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+        <%=link_to (image_tag('/images/post-default.jpg',size: '250x180', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
       <% end %>
     <% end %>
-  </div>
-
-  <div class="tab-pane fade" id="pills-following" role="tabpanel" aria-labelledby="pills-following-tab">
-    <% if @following.any? %>
-    <% @user.followings.each do |user| %>
-<table>
-<tr>
-  <td>  <%= user.username %> </td>
-  <td><%= link_to '詳細', user_path(user) %></td>
-</tr>
-
-</table>
-<% end %>
-
-        <% else %>
-      <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
-        誰もフォローしていません
       </div>
-    <% end %>
-  </div>
-
-
-  <div class="tab-pane fade" id="pills-follower" role="tabpanel" aria-labelledby="pills-follower-tab">
-<% if @follower.any? %>
-    <% @user.followers.each do |user| %>
-<table>
-<tr>
-  <td>  <%= user.username %> </td>
-  <td><%= link_to '詳細', user_path(user) %></td>
-</tr>
-
-</table>
-<% end %>
-
-        <% else %>
-      <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
-        誰もフォローしていません
-      </div>
-    <% end %>
-  </div>
-
-
-  <div class="tab-pane fade" id="pills-lover" role="tabpanel" aria-labelledby="pills-lover-tab">
-  <% if @user.liked_posts.any? %>
-  <% @user.liked_posts.each do |post| %>
-  <%= post.title %>
-  <% if post.image_id.present? %>
-        <div class="post-img">
-          <%=link_to (image_tag attachment_url(post, :image, :fill, 350, 250,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
+<!-- いいね　-->
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <% if @user.liked_posts.any? %>
+      <% @user.liked_posts.each do |post| %>
+      <%= post.title %>
+        <% if post.image_id.present? %>
+          <div class="post-img">
+          <%=link_to (image_tag attachment_url(post, :image, :fill, 250, 180,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
           </div>
+        <% else %>
+          <%=link_to (image_tag('/images/post-default.jpg',size: '250x180', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p> なし </p>
+    <% end %>
+       </div>
+<!-- フォロー -->
+       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+         <% if @following.any? %>
+      <% @user.followings.each do |user| %>
+        <%= user.username %>
+        <% if user.avatar_id.present? %>
+            <%=link_to (image_tag attachment_url(user, :avatar, :fill, 150, 150, format: "jpg")),"/users/show/#{user.id}", class: 'user-img' %>
           <% else %>
-<%=link_to (image_tag('/images/default.jpg',size: '350x250', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
-<% end %>
-<% end %>
+            <%=link_to (image_tag('/images/user-default.png', size: '150x150', class: 'user-img')), "/users/show/#{user.id}" %>
+          <% end %>
+      <% end %>
 
-<% else %>
-
-<p> なし </p>
-<% end %>
-  </div>
+    <% else %>
+      <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
+        誰もフォローしていません
+      </div>
+    <% end %>
+         </div>
+<!-- フォロワー -->
+         <div class="tab-pane fade" id="follower" role="tabpanel" aria-labelledby="follower-tab">
+               <% if @follower.any? %>
+      <% @user.followers.each do |user| %>
+        <%= user.username %> </td>
+        <% if user.avatar_id.present? %>
+            <%=link_to (image_tag attachment_url(user, :avatar, :fill, 150, 150, format: "jpg")),"/users/show/#{user.id}", class: 'user-img' %>
+          <% else %>
+            <%=link_to (image_tag('/images/user-default.png', size: '150x150', class: 'user-img')), "/users/show/#{user.id}" %>
+          <% end %>
+      <% end %>
+    <% else %>
+      <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
+        誰もフォローしていません
+      </div>
+    <% end %>
+          </div>
+       </div>
+    </div>
+ </div>
 </div>
 <!-- テスト -->
