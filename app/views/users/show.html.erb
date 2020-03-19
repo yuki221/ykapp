@@ -29,67 +29,42 @@
        <a class="nav-link" id="follower-tab" data-toggle="tab" href="#follower" role="tab" aria-controls="follower" aria-selected="false">フォロワー<%= @user.followers.count.to_s(:delimited) %></a>
      </li>
   </ul>
+
 <!-- 投稿 -->
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <% @user.posts.each do |post| %>
-      <%= post.title %>
-      <% if post.image_id.present? %>
-        <div class="post-img">
-          <%=link_to (image_tag attachment_url(post, :image, :fill, 250, 180,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
-        </div>
-      <% else %>
-        <%=link_to (image_tag('/images/post-default.jpg',size: '250x180', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
-      <% end %>
-    <% end %>
-      </div>
-<!-- いいね　-->
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <% if @user.liked_posts.any? %>
-      <% @user.liked_posts.each do |post| %>
-      <%= post.title %>
-        <% if post.image_id.present? %>
-          <div class="post-img">
-          <%=link_to (image_tag attachment_url(post, :image, :fill, 250, 180,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
-          </div>
-        <% else %>
-          <%=link_to (image_tag('/images/post-default.jpg',size: '250x180', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
-        <% end %>
-      <% end %>
+    <% if @user.posts.any? %>
+    <%= render 'show_post' %>
     <% else %>
-      <p> なし </p>
-    <% end %>
-       </div>
+        <p>投稿はまだありません</p>
+        <% end %>
+    </div>
+
+<!-- いいね　-->
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <% if @user.liked_posts.any? %>
+        <%= render 'show_liked' %>
+      <% else %>
+        <p> なし </p>
+      <% end %>
+    </div>
+
 <!-- フォロー -->
        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
          <% if @following.any? %>
-      <% @user.followings.each do |user| %>
-        <%= user.username %>
-        <% if user.avatar_id.present? %>
-            <%=link_to (image_tag attachment_url(user, :avatar, :fill, 150, 150, format: "jpg")),"/users/show/#{user.id}", class: 'user-img' %>
-          <% else %>
-            <%=link_to (image_tag('/images/user-default.png', size: '150x150', class: 'user-img')), "/users/show/#{user.id}" %>
-          <% end %>
-      <% end %>
-
+      <%= render 'show_follow' %>
     <% else %>
       <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
         誰もフォローしていません
       </div>
     <% end %>
          </div>
+
 <!-- フォロワー -->
          <div class="tab-pane fade" id="follower" role="tabpanel" aria-labelledby="follower-tab">
                <% if @follower.any? %>
-      <% @user.followers.each do |user| %>
-        <%= user.username %> </td>
-        <% if user.avatar_id.present? %>
-            <%=link_to (image_tag attachment_url(user, :avatar, :fill, 150, 150, format: "jpg")),"/users/show/#{user.id}", class: 'user-img' %>
-          <% else %>
-            <%=link_to (image_tag('/images/user-default.png', size: '150x150', class: 'user-img')), "/users/show/#{user.id}" %>
-          <% end %>
-      <% end %>
-    <% else %>
+      <%= render 'show_follower' %>
+      <% else %>
       <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
         誰もフォローしていません
       </div>
@@ -98,5 +73,6 @@
        </div>
     </div>
  </div>
+</div>
 </div>
 <!-- テスト -->

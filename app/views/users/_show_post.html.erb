@@ -1,0 +1,7 @@
+<% @user.posts.each do |post| %>
+        <% if post.image_id.present? %>
+            <%=link_to (image_tag attachment_url(post, :image, :fill, 240, 172,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
+        <% else %>
+          <%=link_to (image_tag('/images/post-default.jpg',size: '240x172')), "/posts/show/#{post.id}", class: 'post-photo' %>
+        <% end %>
+    <% end %>
