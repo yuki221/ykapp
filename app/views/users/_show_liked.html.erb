@@ -1,7 +1,13 @@
+<div class="row">
 <% @user.liked_posts.each do |post| %>
-        <% if post.image_id.present? %>
+      <% if post.image_id.present? %>
+        <div class="post-cardssss col-6 col-sm-4">
           <%=link_to (image_tag attachment_url(post, :image, :fill, 250, 180,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
-        <% else %>
+        </div>
+          <% else %>
+        <div class="post-cardssss col-6 col-sm-4">
           <%=link_to (image_tag('/images/post-default.jpg',size: '250x180', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
-        <% end %>
+        </div>
       <% end %>
+<% end %>
+</div>

@@ -1,10 +1,10 @@
 <div class="row">
 <% @user.posts.each do |post| %>
         <% if post.image_id.present? %>
-        <div class="post-cardss col-6 col-sm-4">
-            <%=link_to (image_tag attachment_url(post, :image, :fill, 240, 172,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %></div>
+        <div class="post-cardssss col-6 col-sm-4">
+            <%=link_to (image_tag attachment_url(post, :image, :fill, 240, 172,  format: "jpg")), "/posts/show/#{post.id}", class: 'posts-photo' %></div>
         <% else %>
-        <div class="post-cardss col-6 col-sm-4">
-          <%=link_to (image_tag('/images/post-default.jpg',size: '240x172')), "/posts/show/#{post.id}", class: 'post-photo' %>
+        <div class="post-cardssss col-6 col-sm-4">
+          <%=link_to (image_tag('/images/post-default.jpg',size: '240x172')), "/posts/show/#{post.id}", class: 'posts-photo' %>
         </div><% end %>
     <% end %></div>
