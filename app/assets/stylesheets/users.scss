@@ -51,3 +51,42 @@ left: 26%;
 .tab-content{
   border: 1px solid black;
 }
+.post-cardssss{
+  position: relative;
+}
+.post-cardssss img{
+  margin: 0 5px 5px 5px;
+  max-width: 100%;
+  height: auto;
+}
+.posts-photo img{
+  height: 172px;
+  width: 240px;
+}
+.posts-photo{
+
+}
+
+.user-image img{
+  border-radius: 120px;
+  margin-bottom: 20px;
+}
+
+/* user-profile */
+
+.user-header {
+  width: 100%;
+  box-sizing: border-box;
+}
+  .user-namee { font-size: 1.2rem }
+
+  .user-usernamee {
+    color: #aaaaaa;
+    font-size: 0.85rem;
+  }
+.userpage img{
+  border-radius: 150px;
+}
+.userprofile p{
+  word-wrap: break-word;
+}

@@ -1,20 +1,27 @@
-<h1>こんにちは、<%= @user.username %>さん</h1>
-<p>ユーザー用ページです。他ユーザーから見られるユーザーページです。</p>
-<% if @user.avatar_id.present? %>
-<%= image_tag attachment_url(@user, :avatar, :fill, 70, 70, format: "jpg") %>
-<% else %>
-<%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15', :size =>'70x70') %>
-<% end %>
-<%= @user.profile %>
+<div class="container mb-md-5" style="max-width: 700px;">
+  <div class="row">
+    <div class="userpage d-md-block pr-5">
+      <% if @user.avatar_id.present?%>
+        <%= image_tag attachment_url(@user, :avatar, :fill, 250, 250, format: "jpg") %>
+      <% else %>
+        <%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15', :size =>'250x250') %>
+      <% end %>
+    </div>
+<div class="user-info">
+<div class="user-namee">
+<h3><%= @user.username %></h3>
+</div>
+
+<div class="userprofile">
+<p><%= @user.profile %></p>
+</div>
+</div>
 <section class="stats">
-<% if user_signed_in? %>
   <%= render 'follow_form' %>
-  <% end %>
 </section>
 
+
 <!-- テスト -->
-<div class="row">
-<div class="user-nav col-md-12">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item nav-link-user">
      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">投稿<%= @user.posts.count.to_s(:delimited) %></a>
@@ -73,6 +80,4 @@
        </div>
     </div>
  </div>
-</div>
-</div>
 <!-- テスト -->
