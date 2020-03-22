@@ -1,30 +1,26 @@
-
-<!--テスト　-->
-
-<div class="posts-index">
+<div class="posts-indexx">
     <div class="post-item-box">
       <% if @user.avatar_id.present? %>
-      <div class="user-photo">
+      <div class="user-photoo">
         <%= image_tag attachment_url(@user, :avatar, :fill, 200, 200, format: "jpg"), class: 'user-image' %>
      </div>
      <% else %>
-     <div class="user-photo">
-        <%= image_tag('/images/default.jpeg', size: '200x200', class: 'user-image') %>
+     <div class="user-photoo">
+        <%= image_tag('/images/user-default.png', size: '200x200', class: 'user-image') %>
      </div>
      <% end %>
-     <div class="user-infomation">
-     <div class="username-show">
+     <div class="user-infomationn">
+     <div class="username-showw">
       <h1><%= @user.username %></h1>
+      <%= render 'follow_form' %>
      </div>
-     <div class="profile-show">
+     <div class="profile-showw">
        <%= @user.profile %>
      </div>
      </div>
     </div>
 </div>
 
-
-<!-- /tesuto-->
 
 <div class="container mb-md-5" style="width: 100%">
   <div class="row">
@@ -37,10 +33,12 @@
       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">いいね<%= @user.likes.count.to_s(:delimited) %></a>
      </li>
      <li class="nav-item nav-link-user">
-       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">フォロー<%= @user.followings.count.to_s(:delimited) %></a>
+       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">フォロー     <strong id="following" class="stat"><%= @user.followings.count %></strong></a>
      </li>
      <li class="nav-item nav-link-user">
-       <a class="nav-link" id="follower-tab" data-toggle="tab" href="#follower" role="tab" aria-controls="follower" aria-selected="false">フォロワー<%= @user.followers.count.to_s(:delimited) %></a>
+       <a class="nav-link" id="follower-tab" data-toggle="tab" href="#follower" role="tab" aria-controls="follower" aria-selected="false">フォロワー<strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong></a>
      </li>
   </ul>
 

@@ -24,10 +24,12 @@
     margin:0;
     padding:0;
 }
-.username-show{
-color: blue;
+.user-name{
+position: absolute;
+top: 72%;
+left: 40%;
 }
-.follow-btn{
+.follow-bt{
   position: absolute;
 top: 82%;
 left: 26%;
@@ -53,7 +55,7 @@ left: 26%;
   position: relative;
 }
 .post-cardssss img{
-  margin: 5px 0;
+  margin: 0 5px 5px 5px;
   max-width: 100%;
   height: auto;
 }
@@ -73,25 +75,25 @@ left: 26%;
   border: 1px solid red;
   margin-top: 4px;
 }
-.posts-index{
+.posts-indexx{
   border: 1px solid blue;
   overflow: hidden;
 }
-.username-show{
+.username-showw{
   border: 1px solid yellow;
   margin-top: 5px;
 }
-.profile-show{
+.profile-showw{
   border: 1px solid springgreen;
   margin: 5px 0;
 }
-.user-photo img{
+.user-photoo img{
   border-radius: 120px;
   margin-top: 5px;
 }
-.user-photo{
+.user-photoo{
   float: left;
 }
-.user-infomation{
+.user-infomationn{
   overflow: hidden;
 }
