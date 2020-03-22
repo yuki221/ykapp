@@ -24,10 +24,8 @@
     margin:0;
     padding:0;
 }
-.user-name{
-position: absolute;
-top: 72%;
-left: 40%;
+.username-show{
+color: blue;
 }
 .follow-btn{
   position: absolute;
@@ -55,7 +53,7 @@ left: 26%;
   position: relative;
 }
 .post-cardssss img{
-  margin: 0 5px 5px 5px;
+  margin: 5px 0;
   max-width: 100%;
   height: auto;
 }
@@ -67,26 +65,33 @@ left: 26%;
 
 }
 
-.user-image img{
+
+.user-header{
+  border: 1px solid black;
+}
+.nav-tabs{
+  border: 1px solid red;
+  margin-top: 4px;
+}
+.posts-index{
+  border: 1px solid blue;
+  overflow: hidden;
+}
+.username-show{
+  border: 1px solid yellow;
+  margin-top: 5px;
+}
+.profile-show{
+  border: 1px solid springgreen;
+  margin: 5px 0;
+}
+.user-photo img{
   border-radius: 120px;
-  margin-bottom: 20px;
+  margin-top: 5px;
 }
-
-/* user-profile */
-
-.user-header {
-  width: 100%;
-  box-sizing: border-box;
+.user-photo{
+  float: left;
 }
-  .user-namee { font-size: 1.2rem }
-
-  .user-usernamee {
-    color: #aaaaaa;
-    font-size: 0.85rem;
-  }
-.userpage img{
-  border-radius: 150px;
-}
-.userprofile p{
-  word-wrap: break-word;
+.user-infomation{
+  overflow: hidden;
 }
