@@ -3,6 +3,55 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+<!--テスと -->
+<div class="post-form">
+    <div class="preview-wrap" onClick="$('#file').click()">
+      <div id="img_field">
+        <% if @user.avatar.present? %>
+          <%= image_tag attachment_url(current_user, :avatar, :fill, 70,70, format: "jpg") %>
+        <% else %>
+          <%= image_tag 'user-default.png'%>
+          <% end %>
+      </div>
+      <i class="fas fa-camera" onClick="$('#file').click()"></i>
+    </div>
+      <%= f.file_field :avatar, class: "image", style: "display: none;", id: "file", accept: 'image/jpeg,image/gif,image/png'%>
+</div>
+
+<!-- てsつお-->
+<script type="text/javascript">
+
+  <!--　テスト -->
+$(function(){
+    $fileField = $('#file')
+
+    // 選択された画像を取得し表示
+    $($fileField).on('change', $fileField, function(e) {
+      file = e.target.files[0]
+      reader = new FileReader(),
+      $preview = $("#img_field");
+
+      reader.onload = (function(file) {
+        return function(e) {
+          $preview.empty();
+          $preview.append($('<img>').attr({
+            src: e.target.result,
+            width: "100%",
+            class: "preview",
+            title: file.name
+          }));
+        };
+      })(file);
+      reader.readAsDataURL(file);
+    });
+  });
+
+  $(function(){
+    $('textarea').autosize();
+  });
+</script>
+<!-- /テスト -->
+
   <div class="field">
     <%= f.label 'ユーザーネーム' %>
     <%= f.text_field :username, autofocus: true, autocomplete: 'ユーザー名', class: 'form-control' %>
@@ -17,10 +66,6 @@
     <%= f.label 'メールアドレス' %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
-  <%= f.attachment_field :avatar %>
-
-
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
