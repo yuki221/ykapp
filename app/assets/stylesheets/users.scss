@@ -29,7 +29,7 @@ position: absolute;
 top: 72%;
 left: 40%;
 }
-.follow-btn{
+.follow-bt{
   position: absolute;
 top: 82%;
 left: 26%;
@@ -67,26 +67,36 @@ left: 26%;
 
 }
 
-.user-image img{
+
+.user-header{
+  border: 1px solid black;
+}
+.nav-tabs{
+  border: 1px solid red;
+  margin-top: 4px;
+}
+.posts-indexx{
+  border: 1px solid blue;
+  overflow: hidden;
+}
+.username-showw{
+  border: 1px solid yellow;
+  margin-top: 5px;
+}
+.profile-showw{
+  border: 1px solid springgreen;
+  margin: 5px 0;
+}
+.user-photoo img{
   border-radius: 120px;
-  margin-bottom: 20px;
+  margin-top: 5px;
 }
-
-/* user-profile */
-
-.user-header {
-  width: 100%;
-  box-sizing: border-box;
+.user-photoo{
+  float: left;
 }
-  .user-namee { font-size: 1.2rem }
-
-  .user-usernamee {
-    color: #aaaaaa;
-    font-size: 0.85rem;
-  }
-.userpage img{
-  border-radius: 150px;
+.user-infomationn{
+  overflow: hidden;
 }
-.userprofile p{
-  word-wrap: break-word;
+.btnn{
+  cursor: pointer;
 }

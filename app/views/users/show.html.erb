@@ -1,28 +1,31 @@
-<div class="container mb-md-5" style="max-width: 700px;">
-  <div class="row">
-    <div class="userpage d-md-block pr-5">
-      <% if @user.avatar_id.present?%>
-        <%= image_tag attachment_url(@user, :avatar, :fill, 250, 250, format: "jpg") %>
-      <% else %>
-        <%= image_tag('/images/default.jpg', class: 'img-responsive padding-top-15', :size =>'250x250') %>
-      <% end %>
+<div class="posts-indexx">
+    <div class="post-item-box">
+      <% if @user.avatar_id.present? %>
+      <div class="user-photoo">
+        <%= image_tag attachment_url(@user, :avatar, :fill, 200, 200, format: "jpg"), class: 'user-image' %>
+     </div>
+     <% else %>
+     <div class="user-photoo">
+        <%= image_tag('/images/user-default.png', size: '200x200', class: 'user-image') %>
+     </div>
+     <% end %>
+     <div class="user-infomationn">
+     <div class="username-showw">
+      <h1><%= @user.username %></h1>
+      <%= render 'follow_form' %>
+     </div>
+     <div class="profile-showw">
+       <%= @user.profile %>
+     </div>
+     </div>
     </div>
-<div class="user-info">
-<div class="user-namee">
-<h3><%= @user.username %></h3>
 </div>
 
-<div class="userprofile">
-<p><%= @user.profile %></p>
-</div>
-</div>
-<section class="stats">
-  <%= render 'follow_form' %>
-</section>
 
-
+<div class="container mb-md-5" style="width: 100%">
+  <div class="row">
 <!-- テスト -->
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <ul class="nav nav-tabs" id="myTab" role="tablist" style="width: 100%">
     <li class="nav-item nav-link-user">
      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">投稿<%= @user.posts.count.to_s(:delimited) %></a>
     </li>
@@ -30,15 +33,17 @@
       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">いいね<%= @user.likes.count.to_s(:delimited) %></a>
      </li>
      <li class="nav-item nav-link-user">
-       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">フォロー<%= @user.followings.count.to_s(:delimited) %></a>
+       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">フォロー     <strong id="following" class="stat"><%= @user.followings.count %></strong></a>
      </li>
      <li class="nav-item nav-link-user">
-       <a class="nav-link" id="follower-tab" data-toggle="tab" href="#follower" role="tab" aria-controls="follower" aria-selected="false">フォロワー<%= @user.followers.count.to_s(:delimited) %></a>
+       <a class="nav-link" id="follower-tab" data-toggle="tab" href="#follower" role="tab" aria-controls="follower" aria-selected="false">フォロワー<strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong></a>
      </li>
   </ul>
 
 <!-- 投稿 -->
-  <div class="tab-content" id="myTabContent">
+  <div class="tab-content" id="myTabContent" style="width: 100%">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <% if @user.posts.any? %>
     <%= render 'show_post' %>

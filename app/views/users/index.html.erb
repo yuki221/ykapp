@@ -23,7 +23,7 @@
         <div class="user-name">
         <%= user.username %>
         </div>
-        <div class="follow-btn">
+        <div class="follow-bt">
           <% if user_signed_in? %>
             <% unless current_user == user %>
               <% if current_user.following?(user) %>
