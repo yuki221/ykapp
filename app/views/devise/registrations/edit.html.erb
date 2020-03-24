@@ -1,27 +1,69 @@
-<h2 class="text-center">プロフィールを編集</h2>
+
+<h2>プロフィールを編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
 <!--テスと -->
-<div class="post-form">
+<div class="post-formm">
     <div class="preview-wrap" onClick="$('#file').click()">
       <div id="img_field">
         <% if @user.avatar.present? %>
-          <%= image_tag attachment_url(current_user, :avatar, :fill, 70,70, format: "jpg") %>
+          <%= image_tag attachment_url(current_user, :avatar, :fill, 150,150, format: "jpg") %>
         <% else %>
-          <%= image_tag 'user-default.png'%>
+          <%= image_tag '/images/user-default.png', size: '150x150' %>
           <% end %>
       </div>
-      <i class="fas fa-camera" onClick="$('#file').click()"></i>
     </div>
-      <%= f.file_field :avatar, class: "image", style: "display: none;", id: "file", accept: 'image/jpeg,image/gif,image/png'%>
+    <%= f.file_field :avatar, class: "image", style: "display: none;", id: "file", accept: 'image/jpeg,image/gif,image/png'%>
 </div>
 
-<!-- てsつお-->
+  <div class="field">
+    <%= f.label '名前' %>
+    <%= f.text_field :username, autofocus: true, autocomplete: 'ユーザー名', class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'プロフィール（300字以内）' %>
+    <%= f.text_area :profile, rows: 5, autofocus: true, autocomplete: 'profile', class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'メールアドレス' %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'パスワード 6文字以上' %> <i>(変更しない場合は空欄にしてください)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+    <% if @minimum_password_length %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'パスワードの再確認' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label '現在のパスワード' %> <i>(情報を変更する際は入力してください)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+  </div>
+
+  <div class="post-form-btns text-right mb-4">
+    <%= link_to "キャンセル", user_path(current_user), class: "btn submit-btn post-form-btn mr-2", style: "border: none;" %>
+    <%= f.submit "変更を保存する", { class: "btn post-form-btn mr-3" } %>
+  </div>
+<% end %>
+
+
+<!-- てスト -->
 <script type="text/javascript">
 
-  <!--　テスト -->
 $(function(){
     $fileField = $('#file')
 
@@ -51,47 +93,3 @@ $(function(){
   });
 </script>
 <!-- /テスト -->
-
-  <div class="field">
-    <%= f.label 'ユーザーネーム' %>
-    <%= f.text_field :username, autofocus: true, autocomplete: 'ユーザー名', class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'プロフィール（300字以内）' %>
-    <%= f.text_area :profile, rows: 5, autofocus: true, autocomplete: 'profile', class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'メールアドレス' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label 'パスワード' %> <i>(変更しない場合は空欄にしてください)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %>文字以上</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'パスワードの再確認' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label '現在のパスワード' %> <i>(情報を変更する際は入力してください)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= link_to "キャンセル", user_path(current_user), class: "btn submit-btn" %>
-    <%= f.submit "変更を保存する" %>
-  </div>
-<% end %>
