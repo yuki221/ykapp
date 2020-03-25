@@ -224,19 +224,36 @@
   max-width: 600px;
   margin: 0 auto;
 }
-.post-user{
+.post-userr{
   border: 1px solid green;
 }
-.post-user img{
+.post-userr img{
   padding-bottom: 4px;
 }
 .post-show{
   border: 1px solid black;
 }
-.unlike-btn{
-  color: gray;
-}
-.likeunlike{
-  border: 1px solid black;
-  border-radius: 20px;
-}
+.like-btn{
+
+  .btn{
+  border: 2px solid #f90e43;
+  color: #f90e43;
+  width: 100px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}}
+
+.unlike-btn {
+.btn{
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+  width: 100px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}}

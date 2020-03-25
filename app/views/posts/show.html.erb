@@ -1,6 +1,6 @@
 <div class="post-show">
   <div class="post-header">
-    <div class="post-user">
+    <div class="post-userr">
       <% if @posts.user.avatar_id.present? %>
         <%= image_tag attachment_url(@posts.user, :avatar, :fill, 60, 60, format: "jpg") %>
       <% else %>
