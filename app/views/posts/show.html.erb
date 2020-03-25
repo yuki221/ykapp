@@ -2,19 +2,23 @@
   <div class="post-header">
     <div class="post-user">
       <% if @posts.user.avatar_id.present? %>
-        <%= image_tag attachment_url(@posts.user, :avatar, :fill, 50, 50, format: "jpg") %>
+        <%= image_tag attachment_url(@posts.user, :avatar, :fill, 60, 60, format: "jpg") %>
       <% else %>
-        <%= image_tag('/images/default.jpg',size: '50x50') %>
+        <%= image_tag('/images/default.jpg',size: '60x60') %>
       <% end %>
-    </div>
       <%= @post.user.username %>
+    </div>
+
+      <div class="like-form">
+    <%= render 'posts/like_form'%>
+  </div>
   </div>
 
   <div class="post-image">
     <% if @post.image_id.present? %>
       <%= image_tag attachment_url(@post, :image, :fill, 600, 600, format: "jpg"), class: "img-fluid" %>
     <% else %>
-      <%= image_tag('/images/post-default.jpg', size: '1100x1100', class: "img-fluid") %>
+      <%= image_tag('/images/post-default.jpg', size: '600x600', class: "img-fluid") %>
     <% end %>
   </div>
   <%= @post.title %>
@@ -46,20 +50,94 @@
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
 
+<% if @comments.present? %>
+  <% @comments.each do |comment| %>
+    <div class="comment d-flex">
+      <div class="comment-avatar">
+        <%= link_to comment.user.username, users_show_path %>
+      <%= simple_format comment.content %>
+      <%= comment.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+      <% if user_signed_in? %>
+      <% if comment.user_id == current_user.id %>
+      <%= link_to 'コメントを削除', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "コメントを削除しますか？この操作は取り消せません。"}, class: "btn btn-danger btn-md" %>
+      <% end %>
+      <% end %>
+      <hr>
+      </div>
+
+      <div class="comment-body">
+        <div class="comment-author">
+          <%= link_to comment.user.username, user_path(comment.user), class: "author-name" %>
+          <%= link_to "@#{comment.user.username}", class: "author-username" %>
+        </div>
+        <div class="comment-text"><%= comment.content %></div>
+        <div class="comment-nav">
+
+          <% if comment.user == current_user %>
+            <a class="comment-delete" id="comment-delete-<%= comment.id %>" data-toggle="modal" data-target="#comment_modal_<%= comment.id %>">削除</a>
+          <% end %>
+        </div>
+      </div>
+
+
+
+    </div>
+  <% end %>
+<% else %>
+  <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
+    まだコメントがありません
+  </div>
+<% end %>
+
   </div>
 
-  <div class="tab-pane fade" id="pills-like" role="tabpanel" aria-labelledby="pills-like-tab">
-  <% if @post_liked.present? %>
-    <div class="user-cards post-likes row">
+<div class="tab-pane fade" id="pills-like" role="tabpanel" aria-labelledby="pills-like-tab">
+  <div class="users-index">
+    <div class="container">
+      <div class="user-item-box">
+      <div class="post-cardss latest row">
+        <% if @post_liked.present? %>
+          <div class="user-cards post-likes row">
+            <% @liked.each do |like| %>
+<!-- 参考 -->
+              <div class="user-cards d-flex align-items-center col-6 col-sm-4">
+              <div style="width: 100%" >
+              <div class="user-item user-list">
+                <% if user.avatar_id.present? %>
+                  <%=link_to (image_tag attachment_url(user, :avatar, :fill, 150, 150, format: "jpg")),"/users/show/#{user.id}", class: 'user-img' %>
+                <% else %>
+                  <%=link_to (image_tag('/images/user-default.png', size: '150x150', class: 'user-img')), "/users/show/#{user.id}" %>
+                <% end %>
+              </div>
+                <br>
+              <div class="user-name">
+                <%= user.username %>
+              </>
+              <div class="follow-bt">
+                <% if user_signed_in? %>
 
+                    <% if current_user.following?(user) %>
+                      <%= form_for(current_user.following_relationships.find_by(following_id: user.id), html: { method: :delete }, remote: true) do |f| %>
+                        <%= f.submit "フォロー中", class: "btn unfollow rounded-pill" %>
+                    <% end %>
+                      <%= form_for(current_user.following_relationships.build(following_id: user.id), remote: true) do |f| %>
+                        <%= f.hidden_field :following_id %>
+                        <%= f.submit "フォロー", class: "btn follow rounded-pill d-flex align-items-center justify-content-center" %>
+                    <% end %>
+
+                <% end %>
+              <% end %>
+        </div>
+        </div>
+        </div>
+<!-- /sankou -->
     </div>
-    <div class="post-likes-footer">
-
-      <div class="loadmore-btn-wrapper p-0 d-flex">
-
-      </div>
     </div>
-  <% else %>
+    </div>
+    </div>
+    </div>
+  <% end %>
+
     <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
       まだ "いいね！" がありません
     </div>

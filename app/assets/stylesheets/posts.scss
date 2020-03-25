@@ -211,3 +211,32 @@
 .comments-count{
   margin-left: 26px;
 }
+
+.post-image{
+  border: 1px solid yellow;
+  text-align: center;
+}
+.post-header{
+  position: relative;
+  border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.post-user{
+  border: 1px solid green;
+}
+.post-user img{
+  padding-bottom: 4px;
+}
+.post-show{
+  border: 1px solid black;
+}
+.unlike-btn{
+  color: gray;
+}
+.likeunlike{
+  border: 1px solid black;
+  border-radius: 20px;
+}
