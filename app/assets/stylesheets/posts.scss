@@ -229,6 +229,7 @@
 }
 .post-userr img{
   padding-bottom: 4px;
+  border-radius: 50px;
 }
 .post-show{
   border: 1px solid black;
@@ -257,3 +258,23 @@
   font-size: 0.8rem;
   font-weight: 700;
 }}
+.post-infoo{
+  position: relative;
+  border: 1px solid blue;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.post-titlee{
+  border: 1px solid green;
+  font-size: 34px;
+}
+.post-bodyy{
+  border: 1px solid blue;
+}
+
+.post-footer{
+  position: relative;
+  border: 1px solid red;
+  max-width: 600px;
+  margin: 0 auto;
+}
