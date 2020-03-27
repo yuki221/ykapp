@@ -1,0 +1,30 @@
+<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <% if @comments.present? %>
+    <% @comments.each do |comment| %>
+      <div class="comment d-flex">
+        <div class="comment-avatar">
+          <%= link_to comment.user.username, users_show_path %>
+          <%= simple_format comment.content %>
+          <%= comment.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+            <% if user_signed_in? %>
+              <% if comment.user_id == current_user.id %>
+                <%= link_to 'コメントを削除', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "コメントを削除しますか？この操作は取り消せません。"}, class: "btn btn-danger btn-md" %>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
+      まだコメントがありません
+    </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_for [@post, @comment] do |f| %>
+      <%= f.label :コメント内容 %>
+      <%= f.text_area :content %>
+      <br>
+      <%= f.submit 'コメント送信' %>
+    <% end %>
+  <% end %>

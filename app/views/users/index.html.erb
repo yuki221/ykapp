@@ -21,30 +21,29 @@
               <br>
                 <div class="user-name">
                   <%= user.username %>
-                    </div>
-                    <div class="follow-bt">
-                      <% if user_signed_in? %>
-                        <% unless current_user == user %>
-                          <% if current_user.following?(user) %>
-                            <%= form_for(current_user.following_relationships.find_by(following_id: user.id), html: { method: :delete }, remote: true) do |f| %>
-                              <%= f.submit "フォロー中", class: "btn unfollow rounded-pill" %>
-                          <% end %>
-                        <% else %>
-                          <%= form_for(current_user.following_relationships.build(following_id: user.id), remote: true) do |f| %>
-                          <%= f.hidden_field :following_id %>
+                </div>
+                <div class="follow-bt">
+                  <% if user_signed_in? %>
+                    <% unless current_user == user %>
+                      <% if current_user.following?(user) %>
+                        <%= form_for(current_user.following_relationships.find_by(following_id: user.id), html: { method: :delete }, remote: true) do |f| %>
+                          <%= f.submit "フォロー中", class: "btn unfollow rounded-pill" %>
+                        <% end %>
+                      <% else %>
+                        <%= form_for(current_user.following_relationships.build(following_id: user.id), remote: true) do |f| %>
+                        <%= f.hidden_field :following_id %>
                           <%= f.submit "フォロー", class: "btn follow rounded-pill d-flex align-items-center justify-content-center" %>
                         <% end %>
                       <% end %>
-                <% else %>
-                <%= link_to 'マイページ', "/users/show/#{current_user.id}"%>
-
-              <% end %>
-<% end %>
-        </div>
-        </div>
-        </div>
-      <% end %>
+                    <% else %>
+                      <%= link_to 'マイページ', "/users/show/#{current_user.id}"%>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
     </div>
-  </div>
   </div>
 </div>
