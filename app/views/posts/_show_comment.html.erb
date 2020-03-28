@@ -38,10 +38,14 @@
 
   <% if user_signed_in? %>
     <%= form_for [@post, @comment] do |f| %>
-      <%= f.label :コメント内容 %>
+      <div class="comment-boxx">
         <div class="comment-box">
-          <%= f.text_area :content %>
+         <%= f.label :コメント %>
+          <%= f.text_area :content, rows:4,class: "form-control" %>
         </div>
-      <%= f.submit 'コメント送信' %>
+        </div>
+        <div class="comment-btn">
+      <%= f.submit "コメントを送信", { class: "btn" } %>
+      </div>
     <% end %>
   <% end %>
