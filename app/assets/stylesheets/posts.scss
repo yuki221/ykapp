@@ -280,15 +280,25 @@
 }
 .comment-avatar {
   margin: 5px;
-  border: 1px solid black;
+  padding-top: 4px;
 img{
   border-radius: 100px;
 }
 }
 
-.comment-author{
-  border: 1px solid blue;
+
+.delete {
+.btn{
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.9rem;
+}}
+.comment-body{
+  margin: 6px 3px;
 }
-.comment-text{
-  border: 1px solid red;
+.time-ago{
+  position: relative;
+}
+.time-agoo{
+  margin-top: 8px;
+  font-size: small;
 }
