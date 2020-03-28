@@ -28,6 +28,9 @@
     <div class="post-bodyy">
       <%= @post.body %>
     </div>
+    <div class="time-ago">
+      <%= time_ago_in_words(@post.created_at) %>前
+    </div>
   </div>
 <!-- navテスト -->
 
@@ -45,17 +48,15 @@
       </li>
     </ul>
 
-  <div class="tab-content" id="myTabContent" style="width: 100%">
-    <%= render 'show_comment' %>
+    <div class="tab-content" id="myTabContent" style="width: 100%">
+      <%= render 'show_comment' %>
+    </div>
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <%= render 'show_liked' %>
+    </div>
+<% if current_user == @post.user %>
+    <%= link_to "削除", post_path, method: :delete %>
+    <% end %>
   </div>
-
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <%= render 'show_liked' %>
-  </div>
-
-  <% if current_user == @post.user %>
-  <%= link_to "削除", post_path, method: :delete %>
-  <% end %>
-
-</div>
 </div>

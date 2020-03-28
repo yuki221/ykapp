@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     @user = User.find_by(id: @posts.user_id)
     @comments = @post.comments.includes(:user).all
     @comment = @post.comments.build(user_id: current_user.id) if current_user
+    @commentss = @post.comments.build
   end
 
   def destroy

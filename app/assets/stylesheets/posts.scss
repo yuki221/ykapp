@@ -278,3 +278,17 @@
   max-width: 600px;
   margin: 0 auto;
 }
+.comment-avatar {
+  margin: 5px;
+  border: 1px solid black;
+img{
+  border-radius: 100px;
+}
+}
+
+.comment-author{
+  border: 1px solid blue;
+}
+.comment-text{
+  border: 1px solid red;
+}
