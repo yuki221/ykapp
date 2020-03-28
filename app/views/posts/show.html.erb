@@ -8,8 +8,13 @@
       <% end %>
       <%= @post.user.username %>
     </div>
-    <div class="like-form">
+    <div class="like-form d-flex">
       <%= render 'posts/like_form'%>
+      <% if current_user == @post.user %>
+      <div class="delete-btn">
+    <%= link_to "削除", post_path, method: :delete, class: "btn", data: { confirm: "投稿を削除しますか？この操作は取り消せません。"}%>
+    </div>
+    <% end %>
     </div>
   </div>
 
@@ -55,8 +60,6 @@
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <%= render 'show_liked' %>
     </div>
-<% if current_user == @post.user %>
-    <%= link_to "削除", post_path, method: :delete %>
-    <% end %>
+
   </div>
 </div>

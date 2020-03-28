@@ -213,26 +213,19 @@
 }
 
 .post-image{
-  border: 1px solid yellow;
   text-align: center;
 }
 .post-header{
   position: relative;
-  border: 1px solid blue;
   display: flex;
   justify-content: space-between;
   max-width: 600px;
   margin: 0 auto;
 }
-.post-userr{
-  border: 1px solid green;
-}
+
 .post-userr img{
   padding-bottom: 4px;
   border-radius: 50px;
-}
-.post-show{
-  border: 1px solid black;
 }
 .like-btn{
 
@@ -260,21 +253,16 @@
 }}
 .post-infoo{
   position: relative;
-  border: 1px solid blue;
   max-width: 600px;
   margin: 0 auto;
 }
 .post-titlee{
-  border: 1px solid green;
   font-size: 34px;
 }
-.post-bodyy{
-  border: 1px solid blue;
-}
+
 
 .post-footer{
   position: relative;
-  border: 1px solid red;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -310,3 +298,9 @@ img{
 .comment-boxx{
   margin-top: 20px;
 }
+.delete-btn{
+.btn{
+color: rgba(0, 0, 0, 0.4);
+  font-size: 0.9rem;
+  margin-top: 22px;
+}}
