@@ -1,45 +1,62 @@
-<p>各投稿がみれるページです。</p>
-<%= @post.title %>
-<%= @post.body %>
-
-<% if @post.image_id.present? %>
-        <div class="post-img">
-          <%= image_tag attachment_url(@post, :image, :fill, 350, 250, format: "jpg"), class: 'post-photo' %>
-          </div>
-          <% else %>
-<%= image_tag('/images/post-default.jpg', size: '350x250', class: 'img-responsive padding-top-15') %>
-
-<% end %>
-<div class="post-tag">
-<%= render 'posts/tag_list', tag_list: @posts.tag_list %>
-</div>
-
-<%= render 'posts/like' %>
-
-<h2>コメント一覧</h2>
-<% @comments.each do |comment| %>
-  <div>
-    <%= link_to comment.user.username, users_show_path %>
-    <%= simple_format comment.content %>
-    <%= comment.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
-    <% if user_signed_in? %>
-    <% if comment.user_id == current_user.id %>
-    <%= link_to 'コメントを削除', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "コメントを削除しますか？この操作は取り消せません。"}, class: "btn btn-danger btn-md" %>
-    <% end %>
-    <% end %>
-    <hr>
+<div class="post-show">
+  <div class="post-header">
+    <div class="post-userr">
+      <% if @post.user.avatar_id.present? %>
+        <%= image_tag attachment_url(@post.user, :avatar, :fill, 60, 60, format: "jpg") %>
+      <% else %>
+        <%= image_tag('/images/default.jpg',size: '60x60') %>
+      <% end %>
+      <%= @post.user.username %>
+    </div>
+    <div class="like-form">
+      <%= render 'posts/like_form'%>
+    </div>
   </div>
-<% end %>
 
-<% if user_signed_in? %>
-<%= form_for [@posts, @comment] do |f| %>
-  <%= f.label :コメント内容 %>
-  <%= f.text_area :content %>
-  <br>
-  <%= f.submit 'コメント送信' %>
-  <% end %>
-  <% end %>
+  <div class="post-image">
+    <% if @post.image_id.present? %>
+      <%= image_tag attachment_url(@post, :image, :fill, 600, 600, format: "jpg"), class: "img-fluid" %>
+    <% else %>
+      <%= image_tag('/images/post-default.jpg', size: '600x600', class: "img-fluid") %>
+    <% end %>
+  </div>
 
+  <div class="post-infoo">
+    <div class="post-titlee">
+      <%= @post.title %>
+    </div>
+    <div class="post-bodyy">
+      <%= @post.body %>
+    </div>
+    <div class="time-ago">
+      <%= time_ago_in_words(@post.created_at) %>前
+    </div>
+  </div>
+<!-- navテスト -->
+
+<!-- pills -->
+
+<!-- コメント -->
+  <div class="post-footer">
+    <ul class="nav nav-pills justify-content-around" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">コメント<%= @comments.count.to_s(:delimited) %></a>
+      </li>
+      <li class="nav-item">
+<!-- いいね -->
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">いいね<%= @post.likes.count.to_s(:delimited) %></a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent" style="width: 100%">
+      <%= render 'show_comment' %>
+    </div>
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <%= render 'show_liked' %>
+    </div>
 <% if current_user == @post.user %>
-<%= link_to "削除", post_path, method: :delete %>
-<% end %>
+    <%= link_to "削除", post_path, method: :delete %>
+    <% end %>
+  </div>
+</div>
