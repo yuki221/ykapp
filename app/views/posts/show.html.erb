@@ -8,8 +8,10 @@
       <% end %>
       <%= @post.user.username %>
     </div>
-    <div class="like-form">
+    <div class="like-form d-flex">
       <%= render 'posts/like_form'%>
+      <% if current_user == @post.user %>
+    <% end %>
     </div>
   </div>
 
@@ -28,8 +30,9 @@
     <div class="post-bodyy">
       <%= @post.body %>
     </div>
-    <div class="time-ago">
+    <div class="time-ago d-flex">
       <%= time_ago_in_words(@post.created_at) %>前
+    <%= link_to "削除", post_path, method: :delete, class: "btn", data: { confirm: "投稿を削除しますか？この操作は取り消せません。"}%>
     </div>
   </div>
 <!-- navテスト -->
@@ -55,8 +58,6 @@
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <%= render 'show_liked' %>
     </div>
-<% if current_user == @post.user %>
-    <%= link_to "削除", post_path, method: :delete %>
-    <% end %>
+
   </div>
 </div>

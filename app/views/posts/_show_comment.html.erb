@@ -15,15 +15,14 @@
           <%= link_to "@#{comment.user.username}", user_path(comment.user), class: "author-username" %>
         </div>
         <div class="comment-text"><%= comment.content %></div>
-        <div class="time-ago">
+        <div class="time-ago d-flex">
+          <div class="time-agoo">
         <%= time_ago_in_words(comment.created_at) %>前
         </div>
-        <div class="comment-nav">
-
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
           <% if comment.user_id == current_user.id %>
-          <div class="delete-btn">
-            <%= link_to '削除', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "コメントを削除しますか？この操作は取り消せません。"} %>
+          <div class="delete">
+            <%= link_to '削除', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "コメントを削除しますか？この操作は取り消せません。"}, class: "btn" %>
           </div>
           <% end %>
           <% end %>
@@ -39,10 +38,14 @@
 
   <% if user_signed_in? %>
     <%= form_for [@post, @comment] do |f| %>
-      <%= f.label :コメント内容 %>
+      <div class="comment-boxx">
         <div class="comment-box">
-          <%= f.text_area :content %>
+         <%= f.label :コメント %>
+          <%= f.text_area :content, rows:4,class: "form-control", placeholder: "コメントを記入..." %>
         </div>
-      <%= f.submit 'コメント送信' %>
+        </div>
+        <div class="comment-btn">
+      <%= f.submit "コメントを送信", { class: "btn" } %>
+      </div>
     <% end %>
   <% end %>
