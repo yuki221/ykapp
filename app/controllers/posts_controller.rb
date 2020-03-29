@@ -59,6 +59,20 @@ class PostsController < ApplicationController
      @user = User.find_by(id: @posts.user_id)
   end
 
+  def themepark
+     @spot = Post.tagged_with("theme")
+     @post = Post.all
+     @posts = Post.find_by(params[:id])
+     @user = User.find_by(id: @posts.user_id)
+  end
+
+  def shopping
+     @spot = Post.tagged_with("shopping")
+     @post = Post.all
+     @posts = Post.find_by(params[:id])
+     @user = User.find_by(id: @posts.user_id)
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id

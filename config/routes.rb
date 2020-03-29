@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'posts/dinner'
   get 'posts/cafe'
   get 'posts/sweets'
+  get 'posts/shopping'
+  get 'posts/themepark'
 
   get 'tags/:tag', to: 'posts#index', as: :tag #追加
 
