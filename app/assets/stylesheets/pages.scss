@@ -101,7 +101,9 @@
   }
 
 
-
+@mixin sm { @media (min-width: 575px) { @content; } }
+@mixin md { @media (min-width: 768px) { @content; } }
+@mixin lg { @media (min-width: 960px) { @content; } }
 
 
 
@@ -112,14 +114,16 @@
 }
 
 .home-header {
-    background: url('../images/top_image 3.jpeg');
+    background: url('../images/S__5234698.jpg');
     background-size: cover;
     background-position: top center;
-    height: 400px;
+    height: 500px;
+    max-width: 920px;
     margin: -48px 8px 16px 8px;
     position: relative;
     border-radius: 4px;
 }
+
 
 .img-view{
   width: 250px;
