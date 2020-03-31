@@ -9,7 +9,8 @@ class Post < ApplicationRecord
     "night" => '夜景',
     "sweets" => 'スイーツ',
     "dinner" => 'ディナー',
-    "?" =>  '?',
+    "theme" =>  'テーマパーク',
+    "shopping" => 'ショッピング'
   }
 
   acts_as_taggable_on \
