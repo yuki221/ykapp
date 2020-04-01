@@ -74,3 +74,9 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'kaminari'
 
 gem 'rails-i18n', '~> 5.1'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+end
