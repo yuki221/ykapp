@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :cafe, :night, :sweets, :dinner, :themepark, :shopping]
+
+  before_action :login_required, only:[:new]
   def new
     @post = Post.new
   end
@@ -79,7 +82,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_index_path, notice: '投稿しました'
     else
-      render 'pages/about'
+      render 'new'
     end
   end
 
@@ -87,5 +90,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :image, :content, :tag_list)
+  end
+
+  def login_required
+    redirect_to login_path unless current_user
   end
 end

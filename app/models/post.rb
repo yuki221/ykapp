@@ -13,6 +13,12 @@ class Post < ApplicationRecord
     "shopping" => 'ショッピング'
   }
 
+
+  validates :image, presence: true
+  validates :title, presence: true, length: { maximum: 15 }
+  validates :body, presence: true, length: { maximum: 1000 }
+  validates :tag_list, presence: true
+
   acts_as_taggable_on \
     :tag_types
 

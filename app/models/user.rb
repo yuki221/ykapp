@@ -15,6 +15,11 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: 'following_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :follower_relationships
 
+  validates :username, presence: true, length: { maximum: 30 }
+  validates :profile, length: { maximum: 300 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :email, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
+
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end

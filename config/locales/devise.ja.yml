@@ -69,9 +69,8 @@ ja:
   activerecord:
     attributes:
       user:
-        name: 名前
         username: ユーザーネーム
-        bio: 自己紹介
+        profile: 自己紹介
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワードの再入力
@@ -80,15 +79,13 @@ ja:
       post:
         image: 画像
         caption: キャプション
+        title: タイトル
+        body: 内容
+        tag_list: タグ
     errors:
       models:
         user:
           attributes:
-            name:
-              blank: "が未入力です"
-              too_short: "は%{count}文字以上に設定して下さい"
-              too_long: "は%{count}文字以下に設定して下さい"
-              invalid: "は有効でありません"
             username:
               blank: "が未入力です"
               too_short: "は%{count}文字以上に設定して下さい"
@@ -114,5 +111,7 @@ ja:
           attributes:
             image:
               blank: "が選択されていません"
-            caption:
+            title:
+              too_long: "は%{count}文字以下に設定して下さい"
+            body:
               too_long: "は%{count}文字以下に設定して下さい"
