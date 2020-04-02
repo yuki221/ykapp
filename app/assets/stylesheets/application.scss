@@ -26,6 +26,10 @@ body{
   max-width: 960px;
   margin-left:auto;
   margin-right:auto;
+  font-weight: 700;
+}
+body .btn{
+  font-weight: 700;
 }
 
 .container{
@@ -51,6 +55,8 @@ body{
       outline: 0;
       box-shadow: none;
     }
+    max-width: 550px;
+    margin: 0 auto 1rem auto;
 }
 
 .actions{
@@ -59,3 +65,11 @@ body{
 .copyright{
   text-align: center;
 }
+
+.alert {
+    width: fit-content;
+    font-size: 16PX;
+    font-weight: 700;
+    padding: 0;
+    margin: 0 auto 32px auto;
+  }
