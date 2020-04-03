@@ -1,21 +1,19 @@
 <% if user_signed_in? %>
   <% if current_user.already_liked?(@post) %>
-    <div class="likeunlike">
-    <div class="unlike-btn">
-        <%= link_to post_like_path(@post), method: :delete, class: "btn"  do %>
-        いいね！済み
-        <% end %>
-      </div>
+  <div class="unlike-btn">
+        <%= link_to post_like_path(@post), method: :delete, class: "unlike-btn btn"  do %>
+        <p>いいね！済み</p>
+        <% end %></div>
+
   <% else %>
-    <div class="like-btn">
-      <%= link_to post_likes_path(@post), method: :post, class: "btn" do %>
-      いいね！<i class="far fa-thumbs-up"></i>
-    </div>
-  <% end %>
-  <% end %>
-  </div>
+  <div class="like-btn">
+        <%= link_to post_likes_path(@post), method: :post, class: "btn like-btn" do %>
+        <p>いいね！<i class="far fa-thumbs-up"></i></p>
+
+  <% end %></div>
+<% end %>
 <% else %>
-<div class="good-btn">
-<p>いいね！<i class="far fa-thumbs-up"></i><%= @post.likes.count %></p>
-</div>
+  <div class="good-btn">
+    <p>いいね！<i class="far fa-thumbs-up"></i><%= @post.likes.count %></p>
+  </div>
 <% end %>
