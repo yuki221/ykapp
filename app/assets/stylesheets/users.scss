@@ -4,7 +4,7 @@
 .user-cards{
   background-color: #DDDDDD;
   width: auto;
-  height: 290px;
+  height: 240px;
   border: 10px solid white;
   border-radius: 32px;
 }
@@ -16,7 +16,7 @@
     font-weight: bold;
     font-size: 1.2em;
     font-family :Quicksand, sans-serif;
-    top: 40%;
+    top: 36%;
     left: 50%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -25,14 +25,10 @@
     padding:0;
 }
 .user-name{
-position: absolute;
-top: 72%;
-left: 40%;
-}
-.follow-bt{
-  position: absolute;
-top: 82%;
-left: 26%;
+margin-top: 70px;
+text-align: center;
+font-weight: 700;
+font-size: 1.4rem;
 }
 
 .nav-links{
