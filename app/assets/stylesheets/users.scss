@@ -3,6 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*user-index */
+
+.all-user{
+  font-weight: 700;
+  font-size: 1.6rem;
+  border-bottom: 1px solid black;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 2rem;
+}
 .user-cards{
   background-color: #DDDDDD;
   width: auto;
@@ -32,6 +41,10 @@ text-align: center;
 font-weight: 700;
 font-size: 1.4rem;
 }
+@media only screen and (max-width: 840px){
+.user-name {
+    font-size: 1rem;
+}}
 
 /*user-show */
 .post-cardssss{
