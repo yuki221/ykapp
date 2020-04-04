@@ -8,10 +8,8 @@
       <% end %>
       <%= @post.user.username %>
     </div>
-    <div class="like-form d-flex">
+    <div class="like-form">
       <%= render 'posts/like_form'%>
-      <% if current_user == @post.user %>
-    <% end %>
     </div>
   </div>
 

@@ -1,10 +1,21 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*user-index */
+
+.all-user{
+  font-weight: 700;
+  font-size: 1.6rem;
+  border-bottom: 1px solid black;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 2rem;
+}
 .user-cards{
   background-color: #DDDDDD;
   width: auto;
-  height: 290px;
+  height: 240px;
   border: 10px solid white;
   border-radius: 32px;
 }
@@ -16,7 +27,7 @@
     font-weight: bold;
     font-size: 1.2em;
     font-family :Quicksand, sans-serif;
-    top: 40%;
+    top: 36%;
     left: 50%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -25,32 +36,17 @@
     padding:0;
 }
 .user-name{
-position: absolute;
-top: 72%;
-left: 40%;
+margin-top: 70px;
+text-align: center;
+font-weight: 700;
+font-size: 1.4rem;
 }
-.follow-bt{
-  position: absolute;
-top: 82%;
-left: 26%;
-}
+@media only screen and (max-width: 840px){
+.user-name {
+    font-size: 1rem;
+}}
 
-.nav-links{
-  border: 1px solid black;
-  margin-top: 20px;
-}
-
-.nav-cards{
-
-}
-@media screen and (min-width:769px){
-  .nav-links{
-    margin: 0 80px 0 80px;
-  }
-}
-.tab-content{
-  border: 1px solid black;
-}
+/*user-show */
 .post-cardssss{
   position: relative;
 }
@@ -63,33 +59,31 @@ left: 26%;
   height: 172px;
   width: 240px;
 }
-.posts-photo{
 
-}
-
-
-.user-header{
-  border: 1px solid black;
-}
 .nav-tabs{
-  border: 1px solid red;
   margin-top: 4px;
 }
 .posts-indexx{
-  border: 1px solid blue;
   overflow: hidden;
 }
 .username-showw{
-  border: 1px solid yellow;
   margin-top: 5px;
+  font-size: 1.8rem;
+}
+.follow_form .btn{
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-left: 6px;
+  border-radius: 30px;
+  font-weight: 600;
 }
 .profile-showw{
-  border: 1px solid springgreen;
   margin: 5px 0;
 }
 .user-photoo img{
   border-radius: 120px;
-  margin-top: 5px;
+  margin: 8px;
 }
 .user-photoo{
   float: left;
@@ -111,3 +105,100 @@ left: 26%;
   margin-bottom: 50px;
   margin-left: 16px;
 }
+
+
+/* てスト */
+
+.user-status-cell {
+  margin: 0.9rem -15px 0 -15px;
+  .nav {
+    width: 100%;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: block;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1
+    }
+  }
+
+  .nav-item {
+    margin: 0;
+    z-index: 2;
+  }
+  @media only screen and (min-width: 768px){
+    .nav-item {
+      margin: 0 4rem 0 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+
+  .nav-pills .nav-link {
+    color: rgba(0, 0, 0, 0.4);
+    min-width: 50px;
+    height: 67px;
+    border-radius: 0;
+  }
+
+  .nav-pills .nav-link.active {
+    position: relative;
+    color: black;
+    background-color: transparent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: block;
+      border-top: 1px solid black;
+    }
+  }
+
+  .user-status {
+    text-align: center;
+    line-height: 18px;
+    white-space: nowrap;
+    margin-right: auto;
+    margin-left: auto;
+
+    .status-name {
+      white-space: nowrap;
+      font-size: 0.7rem;
+      font-weight: 400;
+      display: block;
+      @media only screen and (min-width: 768px){
+        display: inline;
+        font-size: 0.95rem
+      }
+    }
+
+    .status-value {
+      display: inline;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .status-unit {
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+  }
+@media only screen and (min-width: 768px){
+    .user-status {
+      margin: 0;
+    }
+  }
+
+@media only screen and (min-width: 768px){
+  .user-status-cell {
+    margin: 0.8rem 5px 0 5px;
+  }
+}}

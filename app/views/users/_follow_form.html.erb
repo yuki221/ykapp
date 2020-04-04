@@ -7,5 +7,10 @@
     <%= render 'follow' %>
   <% end %>
   </div>
+  <% else %>
+  <div class="follow_form">
+    <a href="/users/edit" class="btn follow_form">プロフィールを編集</a>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn" %>
+    </div>
 <% end %>
 <% end %>
