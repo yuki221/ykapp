@@ -1,6 +1,8 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*user-index */
 .user-cards{
   background-color: #DDDDDD;
   width: auto;
@@ -31,19 +33,7 @@ font-weight: 700;
 font-size: 1.4rem;
 }
 
-.nav-links{
-  border: 1px solid black;
-  margin-top: 20px;
-}
-
-.nav-cards{
-
-}
-@media screen and (min-width:769px){
-  .nav-links{
-    margin: 0 80px 0 80px;
-  }
-}
+/*user-show */
 .post-cardssss{
   position: relative;
 }
@@ -71,6 +61,15 @@ font-size: 1.4rem;
 .username-showw{
   border: 1px solid yellow;
   margin-top: 5px;
+  font-size: 1.8rem;
+}
+.follow_form .btn{
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-left: 6px;
+  border-radius: 30px;
+  font-weight: 600;
 }
 .profile-showw{
   border: 1px solid springgreen;
@@ -78,7 +77,7 @@ font-size: 1.4rem;
 }
 .user-photoo img{
   border-radius: 120px;
-  margin-top: 5px;
+  margin: 8px;
 }
 .user-photoo{
   float: left;
