@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
 <% unless current_user?(@user) %>
-  <div id="follow_form">
+<div class="follow-form" style="width: 100%; margin-top: 10px;">
+<div id="follow_form">
   <% if current_user.following?(@user) %>
     <%= render 'unfollow' %>
   <% else %>
@@ -11,6 +12,6 @@
   <div class="follow_form">
     <a href="/users/edit" class="btn follow_form">プロフィールを編集</a>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn" %>
-    </div>
+    </div></div>
 <% end %>
 <% end %>

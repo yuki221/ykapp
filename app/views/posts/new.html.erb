@@ -1,5 +1,7 @@
 <div class="container">
-<h1 class="text-center">投稿する</h1>
+<div class="all-user">
+<a class="text-center">投稿する</a>
+</div>
 <%= form_for (@post) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 <div class="post-form">

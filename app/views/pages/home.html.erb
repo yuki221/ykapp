@@ -53,9 +53,9 @@
 
 
 <!-- sample -->
-
-<h1 class="text-center">CATEGORY</h1>
-
+<div class="all-user">
+<a class="text-center">カテゴリー</a>
+</div>
 
 <div class="post-cards row">
 
@@ -85,13 +85,13 @@
 
 <div class="post-card col-6 col-sm-4">
   <div class="sample1">
-    <a href="/posts/themepark"><img src="../images/yakei.jpeg" alt="spot-img"><p>テーマパーク&nbsp;&nbsp;></p></a>
+    <a href="/posts/themepark"><img src="../images/dolphins-906175_1280.jpg" alt="spot-img"><p>テーマパーク&nbsp;&nbsp;></p></a>
   </div>
 </div>
 
 <div class="post-card col-6 col-sm-4">
   <div class="sample1">
-    <a href="/posts/shopping"><img src="../images/yakei.jpeg"><p>ショッピング&nbsp;&nbsp;></p></a>
+    <a href="/posts/shopping"><img src="../images/155280-OUEQZL-754.jpg"><p>ショッピング&nbsp;&nbsp;></p></a>
   </div>
 </div>
 
@@ -101,9 +101,11 @@
 
 
 <!--　最近の投稿 -->
-
-<h1 class="text-center">最新の投稿一覧</h1>
-
+<div class="all-user">
+<div class="lates-post">
+<a class="latest-post text-center">最新の投稿</a>
+</div>
+</div>
 <%= render 'items' %>
 
 <div class="more"><%= link_to_next_page @post, 'もっと見る', remote: true, id: 'view_more' %>

@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @post = Post.all.order(created_at: :desc).page(params[:page])
     @posts = Post.find_by(params[:id])
     @user = User.find_by(id: @posts.user_id)
+    @postss = Post.find_by(id: params[:id])
   end
 
 end

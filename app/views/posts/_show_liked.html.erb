@@ -8,32 +8,14 @@
               <div style="width: 100%" >
                 <div class="user-item user-list">
                   <% if user.avatar_id.present? %>
-                    <%=link_to (image_tag attachment_url(user, :avatar, :fill, 150, 150, format: "jpg")),"/users/show/#{user.id}", class: 'user-img' %>
+                    <%=link_to (image_tag attachment_url(user, :avatar, :fill, 110, 110, format: "jpg")),"/users/show/#{user.id}", class: 'user-img' %>
                   <% else %>
-                    <%=link_to (image_tag('/images/user-default.png', size: '150x150', class: 'user-img')), "/users/show/#{user.id}" %>
+                    <%=link_to (image_tag('/images/user-default.png', size: '110x110', class: 'user-img')), "/users/show/#{user.id}" %>
                   <% end %>
                 </div>
                 <br>
                 <div class="user-name">
                   <%= user.username %>
-                </div>
-                <div class="follow-bt">
-                  <% if user_signed_in? %>
-                    <% unless current_user == user %>
-                      <% if current_user.following?(user) %>
-                        <%= form_for(current_user.following_relationships.find_by(following_id: user.id), html: { method: :delete }, remote: true) do |f| %>
-                          <%= f.submit "フォロー中", class: "btn unfollow rounded-pill" %>
-                        <% end %>
-                      <% else %>
-                        <%= form_for(current_user.following_relationships.build(following_id: user.id), remote: true) do |f| %>
-                          <%= f.hidden_field :following_id %>
-                          <%= f.submit "フォロー", class: "btn follow rounded-pill d-flex align-items-center justify-content-center" %>
-                        <% end %>
-                      <% end %>
-                    <% else %>
-                      <%= link_to 'マイページ', "/users/show/#{current_user.id}"%>
-                    <% end %>
-                  <% end %>
                 </div>
               </div>
             </div>

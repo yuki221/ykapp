@@ -1,59 +1,40 @@
-<p>dinner test page </p>
-
-<h1 class="text-center">投稿一覧</h1>
-
-<% @spot.each do |post| %>
-<div class="p-saunaItem p-saunaItem--list">
-<div class="p-saunaItem_header">
-  <h3 class="p-saunaItemName">
-    <span class="p-saunaItem_name">
-    <%= post.title %></span>
-  </h3>
-  <address class="p-saunaItem_address">●●県&nbsp;●●市&nbsp;●●区●●丁目●-●-●&nbsp;
-  </address>
+<div class="all-user">
+<a class="text-center">投稿一覧</a>
 </div>
-
-
-<div class="p-saunaItem_content">
-  <div class="p-saunaItem_image">
-    <% if post.image_id.present? %>
-      <%=link_to (image_tag attachment_url(post, :image, :fill, 300, 260,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
-    <% else %>
-      <%=link_to (image_tag('/images/post-default.jpg', class: 'img-responsive padding-top-15')), "/posts/show/#{post.id}", class: 'post-photo' %>
-    <% end %>
-  </div>
-  <div class="p-saunaItem_data">
-    <div class="p-saunaItemSpec">
-      <div class="p-saunaItemSpec_content p-saunaItemSpec_content--man">
-        <div class="p-saunaItemSpec_headline">
-          <% if post.user.avatar_id.present? %>
-            <%= image_tag attachment_url(post.user, :avatar, :fill, 50, 50, format: "jpg") %>
-          <% else %>
-            <%= image_tag('/images/default.jpg',size: '50x50') %>
-          <% end %>
-          <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username" %>
-        </div>
+<div class="post-cardsx row">
+  <% @spot.each do |post| %>
+    <div class="post-cardssss col-6 col-sm-4">
+      <div class="post-card-imgss">
+        <% if post.image_id.present? %>
+          <%=link_to (image_tag attachment_url(post, :image, :fill, 300, 260,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photoss img-fluid', alt:"post image" %>
+        <% end %>
       </div>
-    </div>
-
-    <div class="p-saunaItem_meta">
-    <%= post.body .truncate(110, separator: '.') %>
-    </div>
-   <div class="comments-count">
-   <i class="fas fa-comments"></i></i> <%= post.comments.count %>件
-   <% if user_signed_in? %>
+      <div class="post-user">
+        <% if post.user.avatar_id.present? %>
+          <%=link_to (image_tag attachment_url(post.user, :avatar, :fill, 50, 50, format: "jpg")), user_path(post.user) %>
+        <% else %>
+          <%=link_to (image_tag('/images/default.jpg',size: '50x50')), user_path(post.user) %>
+        <% end %>
+      </div>
+        <div class="post-footer-namess" style="line-height: 20px;">
+          <%= link_to "@#{post.user.username}", user_path(post.user), class: "post-footer-username" %></a>
+          <% if user_signed_in? %>
             <% if current_user.already_liked?(post) %>
               <i class="fas fa-heart unlike-btn"></i>
-              <% else %>
-                <i class="far fa-heart like-btn" ></i>
-              <% end %>
-              <%= post.likes.count %>
             <% else %>
               <i class="far fa-heart like-btn" ></i>
-              <%= post.likes.count %>
             <% end %>
-   </div>
-  </div>
+            <%= post.likes.count %>
+          <% else %>
+            <i class="far fa-heart like-btn" ></i>
+            <%= post.likes.count %>
+          <% end %>
+          <i class="fas fa-comments"></i></i> <%= post.comments.count %>
+            <br>
+          <div class="post-time">
+            <%= time_ago_in_words(post.created_at) %>前
+          </div>
+        </div>
+      </div>
+  <% end %>
 </div>
-</div>
-<% end %>
