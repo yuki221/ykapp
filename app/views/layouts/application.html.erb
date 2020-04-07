@@ -13,6 +13,12 @@
   <header>
 
   <!-- ヘッダー  -->
+  <% if user_signed_in? %>
+<% else %>
+<div class="easy-login d-flex justify-content-center align-items-center">
+<%= link_to '今すぐに全機能を利用される場合はこちらからログイン', users_guest_sign_in_path, method: :post, style: "color:white;" %>
+</div>
+<% end %>
 <nav class="navbar navbar-expand navbar-light mb-3">
   <div class="container">
     <!-- タイトル -->
@@ -50,7 +56,7 @@
             <% if current_user.avatar_id.present? %>
             <%=link_to (image_tag attachment_url(current_user, :avatar, :fill, 70, 70, format: "jpg"), class: 'user-img'),user_path(current_user) %>
           <% else %>
-            <%=link_to (image_tag('/images/default.jpg', size: '70x70', class: 'user-img')), user_path(current_user) %>
+            <%=link_to (image_tag('/images/user-default.png', size: '70x70', class: 'user-img')), user_path(current_user) %>
           <% end %>
 
           </li>
