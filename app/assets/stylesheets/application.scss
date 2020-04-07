@@ -21,7 +21,13 @@
 @mixin lg { @media (min-width: 960px) { @content; } }
 
 $color-black: #212529;
-
+.easy-login{
+  max-width: 944px;
+  font-weight: 100;
+  margin: auto;
+  height: 40px;
+  background-color: orange;
+}
 .koispo{
   margin-left: -7px;
 }
