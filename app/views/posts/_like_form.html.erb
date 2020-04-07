@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
   <% if current_user.already_liked?(@post) %>
   <div class="unlike-btn">
-        <%= link_to post_like_path(@post), method: :delete, class: "unlike-btn btn"  do %>
+        <%= link_to post_like_path(@post), method: :delete, class: "unlike-btn btn", onfocus: "this.blur();"  do %>
         <p>いいね！済み</p>
         <% end %></div>
 
   <% else %>
   <div class="like-btn">
-        <%= link_to post_likes_path(@post), method: :post, class: "btn like-btn" do %>
+        <%= link_to post_likes_path(@post), method: :post, class: "btn like-btn", onfocus: "this.blur();" do %>
         <p>いいね！<i class="far fa-thumbs-up"></i></p>
 
   <% end %></div>

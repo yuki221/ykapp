@@ -2,11 +2,11 @@
   <div class="post-header">
     <div class="post-userr">
       <% if @post.user.avatar_id.present? %>
-        <%= image_tag attachment_url(@post.user, :avatar, :fill, 60, 60, format: "jpg") %>
+        <%=link_to (image_tag attachment_url(@post.user, :avatar, :fill, 60, 60, format: "jpg")), user_path(@post.user) %>
       <% else %>
-        <%= image_tag('/images/default.jpg',size: '60x60') %>
+        <%=link_to (image_tag('/images/default.jpg',size: '60x60')), user_path(@post.user) %>
       <% end %>
-      <%= @post.user.username %>
+      <%= link_to "@#{@post.user.username}", user_path(@post.user), class: "post-footer-username" %></a>
     </div>
     <div class="like-form">
       <%= render 'posts/like_form'%>
@@ -29,7 +29,7 @@
       <%= @post.body %>
     </div>
     <div class="time-ago d-flex">
-      <%= time_ago_in_words(@post.created_at) %>前
+      <%= time_ago_in_words(@posts.created_at) %>前
       <% if user_signed_in? %>
         <% if @post.user_id == current_user.id %>
         <%= link_to "削除", post_path, method: :delete, class: "btn", data: { confirm: "投稿を削除しますか？この操作は取り消せません。"}%>
@@ -42,8 +42,9 @@
 <!-- pills -->
 
 <!-- コメント -->
+<div class="user-status-cell">
   <div class="post-footer">
-    <ul class="nav nav-pills justify-content-around" id="pills-tab" role="tablist">
+    <ul class="nav nav-pills justify-content-around justify-content-md-center" id="pills-tab" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">コメント<%= @comments.count.to_s(:delimited) %></a>
       </li>
@@ -62,4 +63,5 @@
     </div>
 
   </div>
+</div>
 </div>

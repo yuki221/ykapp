@@ -20,7 +20,7 @@
               </div>
               <br>
                 <div class="user-name">
-                  <%= user.username %>
+                  <%=link_to "@#{user.username}", "/users/show/#{user.id}", style: "color:black;" %>
                 </div>
               </div>
             </div>

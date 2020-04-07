@@ -4,9 +4,9 @@
       <div class="comment d-flex">
       <div class="comment-avatar">
         <% if comment.user.avatar_id? %>
-          <%= image_tag attachment_url(comment.user, :avatar, :fill, 50, 50, format: "jpg")%>
+          <%=link_to (image_tag attachment_url(comment.user, :avatar, :fill, 50, 50, format: "jpg")), user_path(comment.user) %>
         <% else %>
-          <%= link_to image_tag("user-default.png")%>
+          <%= link_to image_tag("user-default.png"), user_path(comment.user)%>
         <% end %>
       </div>
 
@@ -15,7 +15,7 @@
           <%= link_to "@#{comment.user.username}", user_path(comment.user), class: "author-username" %>
         </div>
         <div class="comment-text"><%= comment.content %></div>
-        <div class="time-ago d-flex">
+        <div class="time-agooo d-flex">
           <div class="time-agoo">
         <%= time_ago_in_words(comment.created_at) %>前
         </div>

@@ -11,11 +11,20 @@
   color: red;
 }
 
-.post-user img{
+.post-user {
+  float: left;
+img{
   border-radius: 50px;
   margin-top: 20px;
 }
-.post-cardss {
+}
+.post-footer-names{
+  margin-top: 28px;
+  margin-left: 60px;
+}
+.post-time{
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.4);
 }
 .testtt{
     margin: 0 -5px;
@@ -23,12 +32,12 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 3px;
 }
-    .post-cardss {}
 .testt{      padding: 0 10px;
       margin-bottom: 20px;
     }
     .post-cardss-img{
       position: relative;
+
     }
       .post-cardss-img img{
 
@@ -60,7 +69,7 @@
   }
 
    .sample1 img{
-    height: 300px;
+    height: 270px;
     max-width: 100%;
     object-fit: cover;
   }
@@ -118,13 +127,15 @@
     background-size: cover;
     background-position: top center;
     height: 500px;
-    max-width: 920px;
+    max-width: 960px;
     margin: -48px 8px 16px 8px;
     position: relative;
     border-radius: 4px;
 }
 
-
+.lates-post{
+ margin-top: 16px;
+}
 .img-view{
   width: 250px;
   height: 250px;

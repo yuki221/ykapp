@@ -80,7 +80,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to posts_index_path, notice: '投稿しました'
+      redirect_to root_path, notice: '投稿しました'
     else
       render 'new'
     end

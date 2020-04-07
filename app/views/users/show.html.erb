@@ -36,6 +36,15 @@
       <% end %>
     </li>
     <li class="nav-item">
+      <%= link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-lover-tab", href: "#pills-lover",
+          role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-lover", "aria-selected" => "true"} do %>
+        <div class="user-status">
+          <div class="status-name p-0">いいね</div>
+          <div class="status-value"><%= @user.likes.count.to_s(:delimited) %></div>
+        </div>
+      <% end %>
+    </li>
+    <li class="nav-item">
       <%= link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-following-tab", href: "#pills-following",
           role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-following", "aria-selected" => "true"} do %>
         <div class="user-status">
@@ -49,16 +58,7 @@
           role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-follower", "aria-selected" => "true"} do %>
         <div class="user-status">
           <div class="status-name p-0">フォロワー</div>
-          <div class="status-value" id="followers_<%= @user.id %>"><%= @user.followers.count.to_s(:delimited) %></div>
-        </div>
-      <% end %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-lover-tab", href: "#pills-lover",
-          role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-lover", "aria-selected" => "true"} do %>
-        <div class="user-status">
-          <div class="status-name p-0">いいね</div>
-          <div class="status-value"><%= @user.likes.count.to_s(:delimited) %></div>
+          <div class="status-value" id="followers"><%= @user.followers.count.to_s(:delimited) %></div>
         </div>
       <% end %>
     </li>
@@ -72,6 +72,16 @@
     <% else %>
       <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
         投稿がありません
+      </div>
+    <% end %>
+  </div>
+
+  <div class="tab-pane fade" id="pills-lover" role="tabpanel" aria-labelledby="pills-lover-tab">
+    <% if @user.likes.any? %>
+              <%= render 'show_liked' %>
+    <% else %>
+      <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
+        "いいね！" した投稿がありません
       </div>
     <% end %>
   </div>
@@ -93,17 +103,6 @@
     <% else %>
       <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
         フォローされていません
-      </div>
-    <% end %>
-  </div>
-
-
-  <div class="tab-pane fade" id="pills-lover" role="tabpanel" aria-labelledby="pills-lover-tab">
-    <% if @user.likes.any? %>
-              <%= render 'show_liked' %>
-    <% else %>
-      <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
-        "いいね！" した投稿がありません
       </div>
     <% end %>
   </div>

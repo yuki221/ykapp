@@ -141,6 +141,7 @@
     border-bottom: 1px solid #eee;
     background: #fff;
     z-index: 1;
+    font-weight: 700;
 }
 
 .p-saunaItem_image img{
@@ -187,11 +188,18 @@
     text-overflow: ellipsis;
     width: 640px;
     margin-bottom: 10px;
+    font-weight: 700;
 }
-
+.post-cardsx{
+  max-width: 100%;
+    height: auto;
+}
+.post-footer-namess{
+  margin-top: 2px;
+}
 .p-saunaItem_content {
     display: flex;
-    width: 100%;
+    width: auto;
 }
 .p-saunaItem_meta{
   margin:12px 0 0 28px;
@@ -264,11 +272,6 @@ img{
 }
 
 
-.delete {
-.btn{
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.9rem;
-}}
 .comment-body{
   margin: 6px 3px;
 }
@@ -292,6 +295,18 @@ img{
 color: rgba(0, 0, 0, 0.4);
   font-size: 1rem;
   margin-top: -6px;
+}}
+
+.time-ago{
+.btn{
+color: rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
+  margin-top: -7px;
+}}
+.time-agooo{
+.btn{
+color: rgba(0, 0, 0, 0.4);
+  font-size: 0.8rem;
 }}
 
 .form-group{
