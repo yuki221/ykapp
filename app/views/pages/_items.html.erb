@@ -1,6 +1,6 @@
 <div class="post-cardss latest row", id="article_lists" >
   <% @post.each do |post| %>
-    <div class="post-cardss col-md-4 col-sm-6">
+    <div class="post-cardssss col-6 col-sm-4">
       <div class="post-cardss-img">
         <% if post.image_id.present? %>
           <%=link_to (image_tag attachment_url(post, :image, :fill, 300, 260,  format: "jpg")), "/posts/show/#{post.id}", class: 'post-photo' %>
@@ -17,7 +17,7 @@
         <% end %>
       </div>
 
-      <div class="post-footer-names" style="line-height: 20px;">
+      <div class="post-footer-namess" style="line-height: 20px;">
         <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username", style: "color:black;" %>
           <% if user_signed_in? %>
             <% if current_user.already_liked?(post) %>
