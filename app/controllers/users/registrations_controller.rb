@@ -71,7 +71,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def forbid_test_user
       if @user.email == "guest@example.com"
-        flash[:notice] = "テストユーザーのため変更できません"
+        flash[:notice] = "テストユーザーのため編集できません"
         redirect_to root_path
       end
   end
