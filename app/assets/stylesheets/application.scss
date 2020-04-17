@@ -16,6 +16,13 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "comments";
+@import "likes";
+@import "pages";
+@import "posts";
+@import "relationships";
+@import "users";
+
 @mixin sm { @media (min-width: 576px) { @content; } }
 @mixin md { @media (min-width: 768px) { @content; } }
 @mixin lg { @media (min-width: 960px) { @content; } }
