@@ -10,7 +10,19 @@
 .unlike-btn{
   color: red;
 }
-
+@media only screen and (max-width: 882px){
+  .category-posts {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 515px){
+  .category-post {
+    font-size: 14px;
+  }
+  .category-posts {
+    font-size: 11px;
+  }
+}
 .post-user {
   float: left;
 img{
