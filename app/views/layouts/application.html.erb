@@ -8,7 +8,7 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script src="https://kit.fontawesome.com/ac8dfce5e3.js" crossorigin="anonymous"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     </head>
 
 
@@ -19,7 +19,7 @@
   <% if user_signed_in? %>
 <% else %>
 <div class="easy-login d-flex justify-content-center align-items-center">
-<%= link_to '今すぐに全機能を利用される場合はこちらからログイン', users_guest_sign_in_path, method: :post, style: "color:white;" %>
+<%= link_to 'こちらからログインなしで利用できます', users_guest_sign_in_path, method: :post, style: "color:white;" %>
 </div>
 <% end %>
 <nav class="navbar navbar-expand navbar-light mb-3">
