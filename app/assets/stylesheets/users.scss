@@ -18,6 +18,13 @@
   height: 240px;
   border: 10px solid white;
   border-radius: 32px;
+  font-size: 5vmin;
+}
+@media only screen and (max-width: 655px){
+  .user-cards{
+    height: 210px;
+
+  }
 }
 .user-item img{
   border-radius: 100px;
