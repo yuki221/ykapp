@@ -4,7 +4,7 @@
       <% if @post.user.avatar_id.present? %>
         <%=link_to (image_tag attachment_url(@post.user, :avatar, :fill, 60, 60, format: "jpg")), user_path(@post.user) %>
       <% else %>
-        <%=link_to (image_tag('/images/default.jpg',size: '60x60')), user_path(@post.user) %>
+        <%=link_to (image_tag('/images/user-default.png',size: '60x60')), user_path(@post.user) %>
       <% end %>
       <%= link_to "@#{@post.user.username}", user_path(@post.user), class: "post-footer-username" %></a>
     </div>
