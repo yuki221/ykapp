@@ -23,7 +23,11 @@
 @media only screen and (max-width: 655px){
   .user-cards{
     height: 210px;
-
+  }
+}
+@media only screen and (max-width: 570px){
+  .profile-edit{
+    padding: 0 10px;
   }
 }
 .user-item img{
