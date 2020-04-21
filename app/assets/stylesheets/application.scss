@@ -16,12 +16,6 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
-@import "comments";
-@import "likes";
-@import "pages";
-@import "posts";
-@import "relationships";
-@import "users";
 
 @mixin sm { @media (min-width: 576px) { @content; } }
 @mixin md { @media (min-width: 768px) { @content; } }
@@ -55,6 +49,19 @@ body .btn{
 .user-img{
   border-radius: 50px;
   margin-right: 16px;
+}
+@media only screen and (max-width: 484px){
+  .koispo img{
+    width: 75px;
+    height: 57px;
+  }
+  .head-userimg{
+    height: 46px;
+    width: 46px;
+  }
+  .user-names{
+    font-size: 10px;
+  }
 }
 .navbar-users{
   color: black;
@@ -106,3 +113,10 @@ body .btn{
     padding: 0;
     margin: 0 auto 32px auto;
   }
+
+  .row{
+    margin: 0;
+  }
+.pills-tab{
+  margin: 0;
+}

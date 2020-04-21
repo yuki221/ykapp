@@ -10,7 +10,28 @@
 .unlike-btn{
   color: red;
 }
-
+@media only screen and (max-width: 882px){
+  .category-posts {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 515px){
+  .category-post {
+    font-size: 14px;
+  }
+  .category-posts {
+    font-size: 11px;
+  }
+  .home-header{
+    max-height: 440px;
+  }
+  .sample1 img{
+    max-height: 250px;
+  }
+  .top-contents{
+    font-size: 1.5rem;
+  }
+}
 .post-user {
   float: left;
 img{
@@ -40,7 +61,6 @@ img{
 
     }
       .post-cardss-img img{
-
      border-radius: 4px;
      max-width: 100%;
      height: auto;
