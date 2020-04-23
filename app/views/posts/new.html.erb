@@ -7,9 +7,7 @@
 <div class="post-form">
     <div class="preview-wrap" onClick="$('#file').click()">
       <div id="img_field">
-        <% if @post.image.present? %>
-          <%= image_tag(@post.image.url, class: "preview") %>
-        <% end %>
+
       </div>
       <i class="fas fa-camera" onClick="$('#file').click()"></i>
     </div>

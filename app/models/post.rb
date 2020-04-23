@@ -5,8 +5,8 @@ class Post < ApplicationRecord
   acts_as_taggable
 
   TAG_TYPES = {
-    "cafe" =>   'カフェ',
     "night" => '夜景',
+    "cafe" =>   'カフェ',
     "sweets" => 'スイーツ',
     "dinner" => 'ディナー',
     "theme" =>  'テーマパーク',
