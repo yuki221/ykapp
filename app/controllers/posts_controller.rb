@@ -81,8 +81,15 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       redirect_to root_path, notice: '投稿しました'
-    else
-      render 'new'
+    elsif @post.title.empty?
+      render 'new',
+      alert: 'タイトルを入力してください'
+      elsif @post.body.empty?
+        render 'new',
+        alert: '内容を入力してください'
+        elsif @post.tag_list.empty?
+          render 'new',
+          alert: 'タグを選択してください'
     end
   end
 
