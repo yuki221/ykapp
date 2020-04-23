@@ -6,7 +6,7 @@
       <% else %>
         <%=link_to (image_tag('/images/user-default.png',size: '60x60')), user_path(@post.user) %>
       <% end %>
-      <%= link_to "@#{@post.user.username}", user_path(@post.user), class: "post-footer-username" %></a>
+      <%= link_to "@#{@post.user.username}", user_path(@post.user), class: "post-footer-username", style: "color:black;" %></a>
     </div>
     <div class="like-form">
       <%= render 'posts/like_form'%>

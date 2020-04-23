@@ -12,7 +12,7 @@
 
       <div class="comment-body">
         <div class="comment-author">
-          <%= link_to "@#{comment.user.username}", user_path(comment.user), class: "author-username" %>
+          <%= link_to "@#{comment.user.username}", user_path(comment.user), class: "author-username", style: "color:black;" %>
         </div>
         <div class="comment-text"><%= comment.content %></div>
         <div class="time-agooo d-flex">
