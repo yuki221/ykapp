@@ -12,7 +12,7 @@
 }
 @media only screen and (max-width: 882px){
   .category-posts {
-    font-size: 14px;
+    white-space: nowrap;
   }
 }
 @media only screen and (max-width: 515px){
@@ -20,7 +20,7 @@
     font-size: 14px;
   }
   .category-posts {
-    font-size: 11px;
+    font-size: 14px;
   }
   .home-header{
     max-height: 440px;
