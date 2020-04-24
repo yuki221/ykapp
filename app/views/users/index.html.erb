@@ -15,7 +15,7 @@
                 <% if user.avatar_id.present? %>
                   <%=link_to (image_tag attachment_url(user, :avatar, :fill, 110, 110, format: "jpg")),"/users/show/#{user.id}", class: 'user-imgg' %>
                 <% else %>
-                  <%=link_to (image_tag('/images/user-default.png', size: '110x110', class: 'user-imgg')), "/users/show/#{user.id}" %>
+                  <%=link_to (image_tag('/images/user-default.png', size: '110x110')), "/users/show/#{user.id}", class: 'user-imgg' %>
                 <% end %>
               </div>
               <br>
