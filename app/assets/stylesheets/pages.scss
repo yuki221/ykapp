@@ -67,6 +67,36 @@ img{
      margin-bottom: -16px;
       }
 
+  .home-header {
+    background: url('../images/S__5234698.jpg');
+    background-size: cover;
+    background-position: top center;
+    height: 500px;
+    max-width: 960px;
+    margin: -48px 8px 16px 8px;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    p{
+      background-color: white;
+      height: auto;
+      opacity: 0.5;
+    }
+  }
+  .home-header p{
+    position: absolute;
+    color: black;
+    font-size: 1.6em;
+    font-family :Quicksand, sans-serif;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+  }
+
   .sample1{
     overflow: hidden;
     position: relative;
@@ -101,28 +131,19 @@ img{
    .sample2{
     overflow: hidden;
     position: relative;
-    margin-top: 10px;
-    border-radius: 10px;
-  }
-  .sample2 p{
-    position: absolute;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-    font-family :Quicksand, sans-serif;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    margin:0;
-    padding:0;
+    background-size: cover;
+    background-position: top center;
   }
 
    .sample2 img{
-    height: 300px;
-    max-width: 100%;
-    object-position: 0 100;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: top center;
+    height: 500px;
+    max-width: 960px;
+    margin: -48px 8px 16px 8px;
+    border-radius: 4px;
   }
    .sample2 img:hover{
     transform: scale(1.1, 1.1);
@@ -140,17 +161,6 @@ img{
   .loggo{
     color: black;
   }
-}
-
-.home-header {
-    background: url('../images/S__5234698.jpg');
-    background-size: cover;
-    background-position: top center;
-    height: 500px;
-    max-width: 960px;
-    margin: -48px 8px 16px 8px;
-    position: relative;
-    border-radius: 4px;
 }
 
 .lates-post{
