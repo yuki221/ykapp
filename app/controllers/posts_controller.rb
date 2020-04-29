@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     @post = Post.all
     @posts = Post.find_by(params[:id])
     @user = User.find_by(id: @posts.user_id)
-
+    @items = Post.page(params[:page]).per(12)
     if params[:tag]
       @users = User.tagged_with(params[:tag])
     else

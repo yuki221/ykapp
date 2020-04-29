@@ -27,5 +27,5 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-  paginates_per 6
+  paginates_per 12
 end

@@ -20,8 +20,3 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require bootstrap
-
-$("#cover-image").click(function () {
-  $("article-image").click();
-  return false; // must!
-});

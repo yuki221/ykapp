@@ -17,7 +17,7 @@
         <% end %>
       </div>
 
-      <div class="post-footer-namess" style="line-height: 20px;">
+      <div class="post-footer-namess">
         <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username", style: "color:black;" %>
           <% if user_signed_in? %>
             <% if current_user.already_liked?(post) %>
@@ -30,10 +30,9 @@
             <i class="far fa-heart like-btn" ></i>
             <%= post.likes.count %>
           <% end %>
-        <br>
-      <div class="post-time">
-      <%= time_ago_in_words(post.created_at) %>前
-      </div>
+        <div class="post-time">
+          <%= time_ago_in_words(post.created_at) %>前
+        </div>
       </div>
   </div>
 <% end %>
