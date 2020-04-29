@@ -43,14 +43,16 @@
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
   </head>
   <body>
 
 <!-- ヘッダー画像 -->
-<div class="home-header d-flex flex-column align-items-center"></div>
+<div class="home-header d-flex flex-column align-items-center">
+  <div class="category-posts">
+    <p>オススメのデートスポットを共有しよう</p>
+  </div>
+</div>
 <!--/ヘッダー画像 -->
-
 
 <!-- sample -->
 <div class="all-user">
@@ -89,7 +91,7 @@
 <div class="post-card col-6 col-sm-4">
   <div class="sample1">
     <a href="/posts/dinner"><img src="../images/dinner.jpg" alt="spot-img">
-    <div class="category-post">
+    <div class="category-posts">
     <p>ディナー&nbsp;&nbsp;></p>
     </div></a>
   </div>
@@ -120,18 +122,16 @@
 
 <!--　最近の投稿 -->
 <div class="all-user">
-<div class="lates-post">
-<a class="top-contents latest-post text-center">最新の投稿</a>
-</div>
+  <div class="lates-post">
+    <a class="top-contents latest-post text-center">最新の投稿</a>
+  </div>
 </div>
 <%= render 'items' %>
-
-<div class="more"><%= link_to_next_page @post, 'もっと見る', remote: true, id: 'view_more' %>
+<div class="next text-center ">
+<%=link_to "もっと見る", '/posts/index', class: "btn post-form-btn mr-3" %>
 </div>
-
 <!--自分で作るjQueryプログラム-->
 <script type="text/javascript">
-
 </script>
 
 <!--　ページネーション(パーシャルにする) -->
