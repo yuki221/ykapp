@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: ykapp_production
-  username: ykapp
-  password: <%= ENV['YKAPP_DATABASE_PASSWORD'] %>
+  username: root
+  password:
