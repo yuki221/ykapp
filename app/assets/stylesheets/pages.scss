@@ -68,7 +68,7 @@ img{
       }
 
   .home-header {
-    background: url('../images/S__5234698.jpg');
+    background: url('../images/S__61.jpg');
     background-size: cover;
     background-position: top center;
     height: 500px;
@@ -77,24 +77,24 @@ img{
     position: relative;
     border-radius: 4px;
     overflow: hidden;
-    p{
-      background-color: white;
-      height: auto;
-      opacity: 0.5;
     }
-  }
+
   .home-header p{
     position: absolute;
-    color: black;
+    color: white;
     font-size: 1.6em;
     font-family :Quicksand, sans-serif;
-    top: 40%;
+    top: 38%;
     left: 50%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     margin:0;
     padding:0;
+    white-space: nowrap;
+    line-height: 54px;
+    font-family: monospace;
+    text-shadow: 1.5px 3px 4.5px #808080;
   }
   .sample1{
     overflow: hidden;
