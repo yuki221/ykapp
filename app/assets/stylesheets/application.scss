@@ -51,17 +51,36 @@ body .btn{
   margin-right: 16px;
 }
 @media only screen and (max-width: 484px){
-  .koispo img{
-    width: 75px;
-    height: 57px;
+  .user-names{
+    font-size: 12px;
   }
+}
+@media screen and (max-width: 484px){
   .head-userimg{
     height: 46px;
     width: 46px;
   }
-  .user-names{
-    font-size: 12px;
+  .koispo img{
+    width: 75px;
+    height: 57px;
   }
+}
+@media screen and (max-width: 410px){
+  .head-userimg{
+    height: 32px;
+    width: 32px;
+    margin-right: 10px;
+  }
+  .koispo img{
+    width: 65px;
+    height: 49px;
+  }
+  .navbar-users{
+    height: 4px;
+    width: 4px;
+    margin-top: -22px;
+    margin-left: -10px;
+}
 }
 .navbar-users{
   color: black;
