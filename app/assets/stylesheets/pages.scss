@@ -55,6 +55,23 @@ img{
   font-size: 0.9rem;
   color: rgba(0, 0, 0, 0.4);
 }
+@media screen and (max-width: 675px){
+.post_created{
+  font-size: 0.8rem;
+}
+}
+@media screen and (max-width: 414px){
+  .post-footer-username{
+    font-size: 12px;
+  }
+  .likes-count{
+    font-size: 120px;
+  }
+}
+@media screen and (max-width: 620px){
+
+}
+
 .testtt{
     margin: 0 -5px;
     display: grid;
