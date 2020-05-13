@@ -83,7 +83,7 @@ class PostsController < ApplicationController
       redirect_to root_path, notice: '投稿しました'
     elsif @post.title.empty?
       render 'new',
-      alert: 'タイトルを入力してください'
+      alert: '施設名を入力してください'
       elsif @post.body.empty?
         render 'new',
         alert: '内容を入力してください'

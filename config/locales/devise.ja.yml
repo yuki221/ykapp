@@ -79,7 +79,7 @@ ja:
       post:
         image: 画像
         caption: キャプション
-        title: タイトル
+        title: 施設名
         body: 内容
         tag_list: タグ
     errors:
