@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :cafe, :night, :sweets, :dinner, :themepark, :shopping]
+  before_action :authenticate_user!, except: %i[show cafe night sweets dinner themepark shopping]
 
   before_action :login_required, only:[:new]
   def new
