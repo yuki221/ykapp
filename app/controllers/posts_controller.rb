@@ -35,45 +35,45 @@ class PostsController < ApplicationController
   end
 
   def night
-     @spot = Post.tagged_with('night')
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('night')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def cafe
-     @spot = Post.tagged_with('cafe')
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('cafe')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def sweets
-     @spot = Post.tagged_with('sweets')
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('sweets')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def dinner
-     @spot = Post.tagged_with('dinner')
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('dinner')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def themepark
-     @spot = Post.tagged_with('theme')
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('theme')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def shopping
-     @spot = Post.tagged_with('shopping')
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('shopping')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def create
