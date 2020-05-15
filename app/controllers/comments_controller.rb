@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
-
   end
 
   def destroy
@@ -20,9 +19,10 @@ class CommentsController < ApplicationController
     else
       redirect_to post_path(@post), alerts: '投稿を削除できませんでした'
     end
-   end
+  end
 
   private
+
   def comment_params
     params.require(:comment).permit(:content)
   end

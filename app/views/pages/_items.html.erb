@@ -11,26 +11,26 @@
 
       <div class="post-user">
         <% if post.user.avatar_id.present? %>
-          <%=link_to (image_tag attachment_url(post.user, :avatar, :fill, 50, 50, format: "jpg")), user_path(post.user) %>
+          <%=link_to (image_tag attachment_url(post.user, :avatar, :fill, 40, 40, format: "jpg")), user_path(post.user) %>
         <% else %>
-          <%=link_to (image_tag('/images/user-default.png',size: '50x50')), user_path(post.user) %>
+          <%=link_to (image_tag('/images/user-default.png',size: '40x40')), user_path(post.user) %>
         <% end %>
       </div>
 
       <div class="post-footer-namess">
         <%= link_to "@#{post.user.username}", "/users/show/#{post.user_id}", class: "post-footer-username", style: "color:black;" %>
-          <% if user_signed_in? %>
+        <div class="post-time">
+        <% if user_signed_in? %>
             <% if current_user.already_liked?(post) %>
               <i class="fas fa-heart unlike-btn"></i>
             <% else %>
               <i class="far fa-heart like-btn" ></i>
             <% end %>
-            <%= post.likes.count %>
+            <span style="color: black;"><%= post.likes.count %></span>
           <% else %>
             <i class="far fa-heart like-btn" ></i>
-            <%= post.likes.count %>
+            <span style="color: black;"><%= post.likes.count %></span>
           <% end %>
-        <div class="post-time">
           <%= time_ago_in_words(post.created_at) %>前
         </div>
       </div>

@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :cafe, :night, :sweets, :dinner, :themepark, :shopping]
-
-  before_action :login_required, only:[:new]
+  before_action :authenticate_user!, except: %i[show cafe night sweets dinner themepark shopping index]
+  before_action :login_required, only: [:new]
   def new
     @post = Post.new
   end
@@ -35,45 +34,45 @@ class PostsController < ApplicationController
   end
 
   def night
-     @spot = Post.tagged_with("night")
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('night')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def cafe
-     @spot = Post.tagged_with("cafe")
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('cafe')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def sweets
-     @spot = Post.tagged_with("sweets")
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('sweets')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def dinner
-     @spot = Post.tagged_with("dinner")
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('dinner')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def themepark
-     @spot = Post.tagged_with("theme")
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('theme')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def shopping
-     @spot = Post.tagged_with("shopping")
-     @post = Post.all
-     @posts = Post.find_by(params[:id])
-     @user = User.find_by(id: @posts.user_id)
+    @spot = Post.tagged_with('shopping')
+    @post = Post.all
+    @posts = Post.find_by(params[:id])
+    @user = User.find_by(id: @posts.user_id)
   end
 
   def create
@@ -83,13 +82,13 @@ class PostsController < ApplicationController
       redirect_to root_path, notice: '投稿しました'
     elsif @post.title.empty?
       render 'new',
-      alert: 'タイトルを入力してください'
-      elsif @post.body.empty?
-        render 'new',
-        alert: '内容を入力してください'
-        elsif @post.tag_list.empty?
+      alert: '施設名を入力してください'
+        elsif @post.body.empty?
           render 'new',
-          alert: 'タグを選択してください'
+          alert: '内容を入力してください'
+            elsif @post.tag_list.empty?
+              render 'new',
+              alert: 'タグを選択してください'
     end
   end
 

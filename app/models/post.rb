@@ -5,14 +5,13 @@ class Post < ApplicationRecord
   acts_as_taggable
 
   TAG_TYPES = {
-    "night" => '夜景',
-    "cafe" =>   'カフェ',
-    "sweets" => 'スイーツ',
-    "dinner" => 'ディナー',
-    "theme" =>  'テーマパーク',
-    "shopping" => 'ショッピング'
+    'night' => '夜景',
+    'cafe' =>   'カフェ',
+    'sweets' => 'スイーツ',
+    'dinner' => 'ディナー',
+    'theme' =>  'テーマパーク',
+    'shopping' => 'ショッピング'
   }
-
 
   validates :image, presence: true
   validates :title, presence: true, length: { maximum: 15 }
