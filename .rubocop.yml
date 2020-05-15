@@ -6,16 +6,10 @@ require:
 AllCops:
   TargetRubyVersion: 2.3.7
   Exclude:
-    - 'config.ru'
-    - 'Guardfile'
     - 'bin/**'
-    - 'lib/**'
     - 'db/**/*'
     - 'config/**/*'
-    - 'script/**/*'
     - 'spec/**/*'
-    - 'app/controllers/users/*'
-    - !ruby/regexp /old_and_unused\.rb$/
     - 'vendor/**/*'
 
 Style/AsciiComments:
@@ -41,4 +35,4 @@ Rails/InverseOf:
 
 Metrics/MethodLength:
   CountComments: true
-  Max: 11
+  Max: 14

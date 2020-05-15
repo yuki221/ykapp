@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: %i[show cafe night sweets dinner themepark shopping]
-
-  before_action :login_required, only:[:new]
+  before_action :authenticate_user!, except: %i[show cafe night sweets dinner themepark shopping index]
+  before_action :login_required, only: [:new]
   def new
     @post = Post.new
   end
@@ -84,12 +83,12 @@ class PostsController < ApplicationController
     elsif @post.title.empty?
       render 'new',
       alert: '施設名を入力してください'
-      elsif @post.body.empty?
-        render 'new',
-        alert: '内容を入力してください'
-        elsif @post.tag_list.empty?
+        elsif @post.body.empty?
           render 'new',
-          alert: 'タグを選択してください'
+          alert: '内容を入力してください'
+            elsif @post.tag_list.empty?
+              render 'new',
+              alert: 'タグを選択してください'
     end
   end
 

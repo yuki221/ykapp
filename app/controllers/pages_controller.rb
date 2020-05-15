@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
   def index; end
 
   def show; end
@@ -9,5 +8,4 @@ class PagesController < ApplicationController
     @posts = Post.find_by(params[:id])
     @postss = Post.find_by(id: params[:id])
   end
-
 end
