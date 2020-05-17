@@ -31,6 +31,9 @@
   .top-contents{
     font-size: 1.5rem;
   }
+  .subtitle{
+    font-size: 1.3em;
+  }
 }
 @media only screen and (max-width: 390px){
   .category-postss{
@@ -61,14 +64,7 @@ img{
   font-size: 0.8rem;
 }
 }
-@media screen and (max-width: 414px){
-  .post-footer-username{
-    font-size: 12px;
-  }
-  .likes-count{
-    font-size: 120px;
-  }
-}
+
 @media screen and (max-width: 620px){
 
 }
@@ -79,21 +75,21 @@ img{
     grid-template-columns: 1fr 1fr 1fr;
     gap: 3px;
 }
-.testt{      padding: 0 10px;
-      margin-bottom: 20px;
-    }
-    .post-cardss-img{
-      position: relative;
+.testt{
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+.post-cardss-img{
+  position: relative;
+}
+.post-cardss-img img{
+  border-radius: 4px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: -16px;
+}
 
-    }
-      .post-cardss-img img{
-     border-radius: 4px;
-     max-width: 100%;
-     height: auto;
-     margin-bottom: -16px;
-      }
-
-  .home-header {
+  .home-header{
     background: url('../images/S__61.jpg');
     background-size: cover;
     background-position: top center;
@@ -104,13 +100,12 @@ img{
     border-radius: 4px;
     overflow: hidden;
     }
-
-  .home-header p{
+    .headertitle{
     position: absolute;
     color: white;
-    font-size: 1.6em;
+    font-size: 5em;
     font-family :Quicksand, sans-serif;
-    top: 38%;
+    top: 34%;
     left: 50%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -119,10 +114,54 @@ img{
     padding:0;
     white-space: nowrap;
     text-shadow: 1.5px 3px 4.5px #808080;
-  }
+    }
   .subtitle{
+    position: absolute;
+    color: white;
+    font-size: 1.6em;
+    font-family :Quicksand, sans-serif;
+    top: 49%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+    white-space: nowrap;
+    text-shadow: 1.5px 3px 4.5px #808080;
     width: 100%;
   }
+  @media only screen and (max-width: 515px){
+  .category-post {
+    font-size: 14px;
+  }
+  .category-posts {
+    font-size: 14px;
+  }
+  .home-header{
+    max-height: 440px;
+  }
+  .sample1 img{
+    max-height: 250px;
+  }
+  .top-contents{
+    font-size: 1.5rem;
+  }
+  .subtitle{
+    font-size: 1.3em;
+  }
+}
+@media screen and (max-width: 414px){
+  .post-footer-username{
+    font-size: 12px;
+  }
+  .likes-count{
+    font-size: 120px;
+  }
+  .headertitle{
+    font-size: 4.5em;
+  }
+}
   .sample1{
     overflow: hidden;
     position: relative;
