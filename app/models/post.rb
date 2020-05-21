@@ -10,7 +10,7 @@ class Post < ApplicationRecord
     'sweets' => 'スイーツ',
     'dinner' => 'ディナー',
     'theme' =>  'テーマパーク',
-    'shopping' => 'ショッピング'
+    'shopping' => '自然'
   }
 
   validates :image, presence: true
