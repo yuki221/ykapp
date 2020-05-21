@@ -13,7 +13,7 @@
   margin-bottom: 2rem;
 }
 .user-cards{
-  background-color: #DDDDDD;
+  background-color: #EEEEEE;
   width: auto;
   height: 240px;
   border: 10px solid white;
@@ -38,20 +38,14 @@
   }
 }
 .user-item img{
-  border-radius: 100px;
+  border-radius: 50px;
   margin: auto;
   position: absolute;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-    font-family :Quicksand, sans-serif;
-    top: 36%;
-    left: 50%;
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    margin:0;
-    padding:0;
+  top: 36%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 .user-name{
 margin-top: 70px;
