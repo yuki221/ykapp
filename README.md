@@ -1,6 +1,4 @@
-![画面収録 2020-05-25 14 33 04 mov](https://user-images.githubusercontent.com/57586358/82781499-e7d3fe80-9e94-11ea-9b86-2af3f9a0491f.gif)
-
-![画面収録 2020-05-25 15 17 49 mov](https://user-images.githubusercontent.com/57586358/82784284-27054e00-9e9b-11ea-9771-59ffac63a321.gif)
+![画面収録 2020-05-25 14 33 04 mov](https://user-images.githubusercontent.com/57586358/82781499-e7d3fe80-9e94-11ea-9b86-2af3f9a0491f.gif)![画面収録 2020-05-25 15 17 49 mov](https://user-images.githubusercontent.com/57586358/82784284-27054e00-9e9b-11ea-9771-59ffac63a321.gif)
 
 # 恋スポ
 
