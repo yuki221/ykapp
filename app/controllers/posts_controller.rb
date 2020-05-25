@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: %i[show cafe night sweets dinner themepark shopping index]
+  before_action :authenticate_user!, except: %i[show cafe night sweets dinner themepark nature index]
   before_action :login_required, only: [:new]
   def new
     @post = Post.new
@@ -68,7 +68,7 @@ class PostsController < ApplicationController
     @user = User.find_by(id: @posts.user_id)
   end
 
-  def shopping
+  def nature
     @spot = Post.tagged_with('shopping')
     @post = Post.all
     @posts = Post.find_by(params[:id])
