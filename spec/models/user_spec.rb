@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'バリデーションの検証' do
+  describe 'バリデーションについての検証' do
     before do
       @user = FactoryBot.build(:user)
     end
@@ -65,23 +65,24 @@ RSpec.describe User, type: :model do
       end
 
       it 'パスワードが6文字以上なら有効であること' do
-        @user.password = @user.password_confirmation = 'a' * 5
-        assert_not @user.valid?
+        @user.password = @user.password_confirmation = 'a' * 6
+        @user.valid?
+        expect(@user).to be_valid
       end
 
       it 'パスワードと確認用パスワードが一致していないと無効であること' do
         @user.password = 'password'
         @user.password_confirmation = 'invalid_password'
         @user.valid?
-        expect(@user.errors[:password_confirmation]).to include('とパスワードの入力が一致しません')
+        expect(@user.errors[:password_confirmation]).to include('が一致しません')
       end
     end
 
-   it '1 + 1 は 2 になること' do
-    expect(1 + 1).to eq 2
-  end
-  it '10 - 1 は 9 になること' do
-    expect(10 - 1).to eq 9
-  end
+    context 'プロフィールについての検証' do
+      it 'プロフィールの文字数が300字以内だと有効であること' do
+        @user.profile = 'a' * 300
+        expect(@user).to be_valid
+      end
+    end
   end
 end
