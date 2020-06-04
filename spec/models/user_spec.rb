@@ -7,12 +7,7 @@ RSpec.describe User, type: :model do
     end
 
     it '名前、メールアドレス、パスワードがあれば有効な状態であること' do
-    user = User.new(
-      username: 'sample',
-      email: 'sample@example.com',
-      password: '123456'
-    )
-    expect(user).to be_valid
+    expect(@user).to be_valid
   end
 
   describe '存在性の検証' do
