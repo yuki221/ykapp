@@ -25,7 +25,7 @@ RSpec.describe Post, type: :model do
     it 'タイトルが15文字以上であるなら無効であること' do
       @post.title = 'a' * 15
       @post.valid?
-      expect(@post.errors).to be_added(:title, :too_long, count: 50)
+      expect(@post.errors).to be_added(:title, :too_long, count: 15)
     end
 
     it '本文が1000文字以内だと有効であること' do

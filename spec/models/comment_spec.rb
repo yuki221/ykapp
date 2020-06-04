@@ -29,7 +29,7 @@ RSpec.describe Comment, type: :model do
       expect(@comment.errors[:content]).to include 'を入力してください'
     end
 
-    it 'コメントが501文字以上であるなら無効であること' do
+    it 'コメントが101文字以上であるなら無効であること' do
       @comment.content = 'a' * 101
       @comment.valid?
       expect(@comment.errors).to be_added(:content, :too_long, count: 100)
