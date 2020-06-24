@@ -46,6 +46,20 @@ RSpec.describe User, type: :model do
       end
   end
 
+  context 'ユーザー名についての検証' do
+      it 'ユーザー名が30文字を超えると無効であること' do
+        @user.username = 'a' * 31
+        @user.valid?
+        expect(@user.errors[:username]).to include('は30文字以内で入力してください')
+      end
+
+      it 'ユーザー名が30文字以内だと有効であること' do
+        @user.username = 'a' * 30
+        @user.valid?
+        expect(@user).to be_valid
+      end
+    end
+
   context 'パスワードについての検証' do
       it 'パスワードがなければ無効であること' do
         @user.password = nil
