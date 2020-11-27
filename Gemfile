@@ -38,7 +38,7 @@ group :development, :test do
 end
 
 group :production, :staging do
-  gem 'unicorn'
+  gem 'unicorn', '5.4.1'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

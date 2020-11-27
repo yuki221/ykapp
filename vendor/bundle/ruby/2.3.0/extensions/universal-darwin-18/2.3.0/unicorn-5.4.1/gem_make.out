@@ -1,0 +1,26 @@
+current directory: /Users/chris/environment/ykapp/vendor/bundle/ruby/2.3.0/gems/unicorn-5.4.1/ext/unicorn_http
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20201127-56825-1solstp.rb extconf.rb
+checking for SIZEOF_OFF_T in ruby.h... yes
+checking for SIZEOF_SIZE_T in ruby.h... yes
+checking for SIZEOF_LONG in ruby.h... yes
+checking for rb_str_set_len() in ruby.h... yes
+checking for rb_hash_clear() in ruby.h... yes
+checking for gmtime_r() in time.h... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/chris/environment/ykapp/vendor/bundle/ruby/2.3.0/extensions/universal-darwin-18/2.3.0/unicorn-5.4.1/mkmf.log
+
+current directory: /Users/chris/environment/ykapp/vendor/bundle/ruby/2.3.0/gems/unicorn-5.4.1/ext/unicorn_http
+make "DESTDIR=" clean
+
+current directory: /Users/chris/environment/ykapp/vendor/bundle/ruby/2.3.0/gems/unicorn-5.4.1/ext/unicorn_http
+make "DESTDIR="
+compiling httpdate.c
+compiling unicorn_http.c
+linking shared-object unicorn_http.bundle
+
+current directory: /Users/chris/environment/ykapp/vendor/bundle/ruby/2.3.0/gems/unicorn-5.4.1/ext/unicorn_http
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 unicorn_http.bundle ./.gem.20201127-56825-f0ip8h
