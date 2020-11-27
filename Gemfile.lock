@@ -301,7 +301,7 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.7.0)
-    unicorn (5.5.5)
+    unicorn (5.4.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
     warden (1.2.8)
@@ -365,4 +365,4 @@ RUBY VERSION
    ruby 2.3.7p456
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
